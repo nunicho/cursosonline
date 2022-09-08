@@ -27,55 +27,156 @@
   </head>
 
   <body>
-    <header></header>
+    <header>
+         <section>
+              <nav class="navbar navbar-expand-lg bg-light fixed-top">
+                <div class="container">
+                  <a class="navbar-brand" href="index.html">
+                    <img class="logoNavbar" src="https://cdn.ceoworld.biz/wp-content/uploads/2021/05/online-courses.jpg" alt="logo" width="67" height="67" />
+                  </a>
+                  <button class="navbar-toggler btn-dark" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-lg-0 mt-2">
+                        <li class="nav-item dropdown mx-2 mb-2">
+                            <a class="nav-link btn btn-info dropdown-toggle text-white" href="#" id="navbarDropdown"
+                              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Categorias
+                            </a>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                              <li>
+                                <a class="dropdown-item btnColorPrincipal" href="#">Javascript</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item btnColorPrincipal" href="#">Web Design</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item btnColorPrincipal" href="#">Ofimática</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item btnColorPrincipal" href="#">Python y R</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item btnColorPrincipal" href="#">Data Analyst</a>
+                              </li>
+                            </ul>
+                        </li>
+                        <li>
+                          <form class="d-flex mx-2">
+                            <input class="form-control" type="text" maxlength="25" minlength="1" placeholder="Busca cualquier curso"
+                              aria-label="Search" />
+                            <button class="btn btn-info text-white" type="submit">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                          </form>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-cart-arrow-down fs-3 text-info mx-2 my-2"></i>
+                            
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <button class="btn btn-info py-0 mx-2 mb-2">
+                              <a class="nav-link text-white" href="pages/suscripcion.html">Suscríbete</a>
+                            </button>
+                          </li>
+
+                        
+                                          
+                        <li class="nav-item">
+                        <a href="pages/login.html" class="btn btn-info text-white p-2 mx-2 mb-2" type="button" >
+                          Iniciar Sesion
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </section>
+ 
+    </header>
     <main class="container my-5">
-      <h1 class="display-4 text-center">Cursos</h1>
-      <hr />
       <section id="seccionDetalle">
         <div class="card mb-3">
           <div class="row">
-            <div class="col-md-12 col-lg-12">
-              <div class="card-body">
-                <h5>Codigo 01</h5>
-                <h3 class="card-title text-center">Curso de Excel avanzado</h3>
-                <h4>Precio: $01</h4>
+            
+              <div class="card-body col-12 col-md-12 col-lg-12 text-center">
+                <div>
+                  <h5>Codigo 01</h5>
+                  <h3 class="card-title text-center">Business English</h3>
+                  <h4>Precio: $01</h4>
+                </div>
                 <div class="col-12 col-md-12 col-lg-12 text-center">
                   <img
-                    src="https://eltrebol.gov.ar/wp-content/uploads/2020/09/cursos-excel.jpg"
-                    class="img-fluid rounded-start"
-                    alt="Excel"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdeHi7naBtakVIpLuvJP9AjtK8jMZMzVDHH61JNTUovQjM0sNiaAcKf6HEUhGa_4UMOU&usqp=CAU"
+                    class="w-50"
+                    alt="Full stack"
                   />
                 </div>
-                <p class="card-text">
-                  Categoria:
-                  <span class="badge rounded-pill bg-success" >Excel</span>
-                </p>
-                <p class="card-text">
-                  Introducción a Excel: Conceptos básicos – Modos de copiar,
-                  pegar y cortar – Selección de celdas, comando mover, suprimir,
-                  inmovilizar – Abrir archivo nuevo, libro nuevo o plantillas,
-                  guardar archivo – Impresión de planilla de cálculo, vista
-                  preliminar, márgenes. Formato de celdas: Número, alineación,
-                  fuente, bordes y relleno – Comando alto de fila, ocultar
-                  columnas, filas y hojas – Protección con contraseña – Insertar
-                  y eliminar filas – Atajos del teclado. Fórmulas, operadores,
-                  referencias a celdas: Suma, Producto, Porcentaje, Promedio
-                  –Referencias relativas, absolutas y mixtas. Gráficos y
-                  Funciones: Formatos de gráficos – Funciones de Fecha, hora,
-                  contadores y búsqueda.
-                </p>
-
-                <p class="card-text">
-                  <small class="text-muted">Stock: 1 Unidad</small>
-                </p>
+                <div class="my-4 col-12 col-md-12 col-lg-12">
+                  <p class="card-text">
+                    Categoria:
+                    <span class="badge rounded-pill bg-info">English</span>
+                  </p>
+                </div>
+                <div class=" col-12 col-md-12 col-lg-12 ">
+                  <p class="card-text">
+                    Este curso está diseñado para bindarte las herramientas necesarias para mantener un diálogo en el ambiente laboral.
+                  </p>
+                </div>
               </div>
-            </div>
+            
           </div>
         </div>
       </section>
     </main>
-      
-    <footer></footer>
+<footer>
+        <section class="p-4 my-5 container-fluid bg-dark ">
+            <article class="row">
+              <div class="col-12 col-md-2 col-lg-2">
+                <a href="index.html">
+                  <img class="logoFooter" src="https://cdn.ceoworld.biz/wp-content/uploads/2021/05/online-courses.jpg" alt="logo" width="67" height="67" />
+                </a>
+              </div>
+              <div class="col-12 col-md-4 col-lg-2">
+                <a href="#" class="fs-5">Contáctanos</a>
+              </div>
+              <div class="col-12 col-md-6 col-lg-2">
+                <a href="#" class=" fs-5">Acerca de nosotros</a>
+              </div>
+              <div class="col-md-6 col-12 col-lg-3">
+                <div class="d-flex flex-column justify-content-center">
+                  <h5 class="text-center text-white fs-5 mb-3">Nuestra App</h5>
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 text-center ">
+                      <a href="#">
+                        <i class="fa-brands fa-apple fs-5"></i>
+                      </a>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 text-center">
+                        <a href="#">                     
+                      <i class="fa-brands fa-google-play fs-5"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12 col-lg-3">
+                <div class="text-center sm-app">
+                  <h5 class="text-white fs-5">Síguenos</h5>
+                  <a href="#"><i class="fa-brands fa-facebook fs-5"></i></i></a>
+                  <a href="#"><i class="fa-brands fa-instagram fs-5"></i></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter fs-5"></i></i></a>
+                </div>
+              </div>
+          </section>
+    </footer>
+   
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
