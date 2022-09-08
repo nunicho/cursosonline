@@ -21,24 +21,20 @@
       </nav>
     </header>
     <main class="container my-5">
-      <h2 class="display-2 text-center">Administrador de cursos</h2>
+      <h1 class="display-4 text-center">Administrador de series</h1>
       <hr />
-      <div class="mb-5">
-          <button
-            class="btn btn-outline-primary mx-2"
-            type="button"
-            id="btnCargarCurso"
-          >
-            <i class="bi bi-clipboard2-plus-fill fs-5">Cargar cursos</i>
-          </button>
-        </p>
-      </div>
-      <div>
-        <h2 class="display-4">Listado de cursos</h2>
+      <section class="d-flex">
+        <p class="mb-0">Opciones:</p>
+        <button
+          class="btn btn-outline-primary btn-sm ms-3"
+        id="btnCrearPelicula" >
+          <i class="bi bi-clipboard2-plus-fill"></i>
+        </button>
+      </section>
+      <section class="mt-5">
+        <h2 class="display-6">Lista de series</h2>
         <hr />
-      </div>
-      <section>
-        <div class="table-responsive">
+        <article class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -46,95 +42,101 @@
                 <th scope="col">Titulo</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Imagen</th>
-                <th scope="col">Area</th>
+                <th scope="col">Genero</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
-            <tbody id="tablaCurso">
-                <!-- MODIFICAR ESTO CON ID PROPIO -->
-              
+            <tbody id="tablaPelicula">
             </tbody>
+       
           </table>
-        </div>
+        </article>
       </section>
-
-      <!-- Ventana Modal Formulario, modificar lo que este en MAyus por Id propios -->
-      <div
-        class="modal fade"
-        id="modalCurso" 
-        tabindex="-1"
-        aria-labelledby="modalCursolabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalCursolabel">Administrar curso</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form id="formAdmin">
-                <div class="mb-3">
-                  <label for="codigo" class="form-label">Codigo</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="codigo"
-                    disabled
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="titulo" class="form-label">Titulo</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="titulo"
-                    placeholder="Curso de como aprobar el proyecto del modulo 2 sin morir en el intento"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="descripcion" class="form-label"
-                    >Descripcion</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="descripcion"
-                    placeholder="Ej:Lorem ipsumn dolor sit amet."
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="url" class="form-label">Imagen</label>
-                  <input
-                    type="url"
-                    class="form-control"
-                    id="url"
-                    placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html"
-                  />
-                </div>
-                <!-- <div class="mb-3">
-                  <label for="Categoria" class="form-label">Categoria</label>
-                  <select id="Categoria" class="form-control">
-                    <option value="">Seleccione una opcion</option>
-                    <option value="CyF">Ciencia Ficcion</option>
-                    <option value="Comedia">Comedia</option>
-                    <option value="Accion">Accion</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Horror">Horror</option>
-                  </select>
-                </div> -->
-                <button type="submit" class="btn btn-primary">Enviar</button>
-              </form>
-            </div>
+    </main>
+    <!-- Modal para administrar series -->
+    <div
+      class="modal fade"
+      id="modalPelicula"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Administrar Serie
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formPelicula">
+              <div class="mb-3">
+                <label for="codigo">Codigo</label>
+                <input
+                  id="codigo"
+                  type="text"
+                  class="form-control"
+                  placeholder="123"
+                  maxlength="5"
+                  minlength="1"
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="titulo">Titulo</label>
+                <input
+                  id="titulo"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: Robotech"
+                  maxlength="60"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="descripcion">Descripcion</label>
+                <textarea
+                  id="descripcion"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Ej: Lorem ipsum dolor sit amet."
+                  maxlength="200"
+                  minlength="2"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imagen">Imagen</label>
+                <input
+                  id="imagen"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html"
+                  maxlength="120"
+                  minlength="2"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="genero">Genero</label>
+                <select id="genero" class="form-control">
+                  <option value="">Selecione una opcion</option>
+                  <option value="accion">Accion</option>
+                  <option value="drama">Drama</option>
+                  <option value="comedia">Comedia</option>
+                  <option value="aventura">Aventura</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" type="submit">Enviar</button>
+            </form>
           </div>
         </div>
       </div>
-    </main>
+    </div>
     <footer class="bg-dark text-white text-center py-4">
       <p>&copy; Todos los derechos reservados</p>
     </footer>
