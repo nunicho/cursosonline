@@ -1,39 +1,3 @@
-
-
-let listaCursos = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
-
-
-//dibujar columnas
-listaCursos.map((curso)=>{ crearColumna(curso)})
-
-
-function crearColumna(curso){
-    let grilla = document.querySelector('#grilla');
-
-    grilla.innerHTML += `
-
-    <aside class="col-12 col-md-4 col-lg-3 mb-3">
-    <div class="card" >
-    <img src="${curso.imagen}" class="card-img-top" alt="${curso.nombre}">
-      <div class="card-body">
-        
-      <h5 class="card-title">${curso.nombre}</h5>
-        <h6 class="precio">${curso.precio} </h6> 
-        <p> ${curso.descripcion}</p>    
-        <a href="#" class="btn btn-success button input agregar-carrito" data-id="${curso.codigo}">Agregar Al Carrito</a>  
-        <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
-        
-          
-      </div>
-    </div>
-  </aside>
-
-
-
-`
-}
-
-
 /*------------------------------------------------------------ CARRITO DE COMPRAS*/
 
 
@@ -103,7 +67,7 @@ if (existe){
     //Actualizamos la cantidad
     const cursos = articulosCarrito.map( curso => {
     if (curso.id === infoCurso.id){
-    //curso.cantidad ++;
+    curso.cantidad ++;
         return curso; // retorna el objeto actualizado
     }else{
         return curso; // retorna los objetos que no son los duplicados
@@ -136,7 +100,7 @@ function carritoHTML(){
      const { imagen, titulo, precio, cantidad, id } = curso   
      const row = document.createElement('tr');
         row.innerHTML = `
-        <td><img src="${imagen}" width="50"></td>
+        <td><img src="${imagen}" width="100"></td>
         <td>${titulo}</td>
         <td>${precio}</td>
         <td>${cantidad}</td>
@@ -158,6 +122,4 @@ function limpiarHTML(){
     contenedorCarrito.removeChild(contenedorCarrito.firstChild)
    }
 }
-
-
 
