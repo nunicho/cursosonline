@@ -73,6 +73,9 @@ function crearCurso(e){
     // LIMPIAR CURSO
   
     limpiarFormulario();
+
+    //dibujar curso
+    crearFila(nuevoCurso)
   
     //CERRAR LA VENTANA MODAL
    
