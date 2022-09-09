@@ -16,7 +16,7 @@ function crearColumna(curso){
         <h5 class="card-title">${curso.nombre}</h5>
         <h6>${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>
-          <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
+          <button onclick="detalleCurso('${curso.codigo}')" class="btn btn-primary">ver detalle</button>
       </div>
     </div>
   </aside>
@@ -45,8 +45,9 @@ function crearColumna(curso){
 }
 */
 
-function detallePelicula(codigo){
+function detalleCurso(codigo){
     console.log(codigo)
-    console.log(window.location.origin + '/pages/detalle.html?codigo='+codigo);
-    window.location.href = window.location.origin + '/pages/detalle.html?codigo='+codigo;
+    // console.log(window.location)
+    console.log(window.location.origin+'/pages/detalles.html?codigo='+codigo);
+    window.location.href = window.location.origin +'/pages/detalles.html?codigo='+codigo;
 }
