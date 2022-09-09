@@ -78,13 +78,21 @@ function crearCurso(e){
     crearFila(nuevoCurso)
   
     //CERRAR LA VENTANA MODAL
+    Swal.fire('El curso fue cargado correctamente!')
    
     modalFormCurso.hide();
+
 }
 
 function limpiarFormulario(){
     formCurso.reset();
-    //resetear la claser de bootstrap form-control
+    //resetear la clases de bootstrap form-control
+    titulo.className = "form-control";
+    descripcion.className = "form-control";
+    imagen.className = "form-control";
+    genero.className = "form-control";
+    codigo.className = "form-control";
+}
 }
 
 function guardarDatosEnLS(){
