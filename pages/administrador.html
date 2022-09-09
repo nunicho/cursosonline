@@ -27,7 +27,7 @@
       <header>
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
           <div class="container">
-            <a class="navbar-brand" href="../index.html">Peliculas</a>
+            <a class="navbar-brand" href="../index.html">Cursos</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -58,18 +58,18 @@
         </nav>
       </header>
       <main class="container my-5">
-        <h1 class="display-4 text-center">Administrador de series</h1>
+        <h1 class="display-4 text-center">Administrador de cursos</h1>
         <hr />
         <section class="d-flex">
           <p class="mb-0">Opciones:</p>
           <button
             class="btn btn-outline-primary btn-sm ms-3"
-          id="btnCrearPelicula" >
+          id="btnCrearCurso" >
             <i class="bi bi-clipboard2-plus-fill"></i>
           </button>
         </section>
         <section class="mt-5">
-          <h2 class="display-6">Lista de series</h2>
+          <h2 class="display-6">Lista de cursos</h2>
           <hr />
           <article class="table-responsive">
             <table class="table table-striped">
@@ -83,17 +83,17 @@
                   <th scope="col">Descripcion</th>
                 </tr>
               </thead>
-              <tbody id="tablaPelicula">
+              <tbody id="tablaCurso">
               </tbody>
          
             </table>
           </article>
         </section>
       </main>
-      <!-- Modal para administrar series -->
+      <!-- Modal para administrar cursos -->
       <div
         class="modal fade"
-        id="modalPelicula"
+        id="modalCurso"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -102,7 +102,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Administrar Serie
+                Administrar Curso
               </h5>
               <button
                 type="button"
@@ -112,7 +112,7 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form id="formPelicula">
+              <form id="formCurso">
                 <div class="mb-3">
                   <label for="codigo">Codigo</label>
                   <input
@@ -126,26 +126,37 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="titulo">Titulo</label>
+                  <label for="nombre">Nombre</label>
                   <input
-                    id="titulo"
+                    id="nombre"
                     type="text"
                     class="form-control"
-                    placeholder="Ej: Robotech"
+                    placeholder="Ej: JavaScript para novatos"
                     maxlength="60"
                     minlength="2"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="descripcion">Descripcion</label>
-                  <textarea
-                    id="descripcion"
-                    rows="4"
+                  <label for="precio">Precio</label>
+                  <input
+                    id="precio"
+                    rows="1"
                     class="form-control"
-                    placeholder="Ej: Lorem ipsum dolor sit amet."
+                    placeholder="Ej: 50 USD"
                     maxlength="200"
                     minlength="2"
-                  ></textarea>
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="categoria">Categoria</label>
+                  <input
+                    id="categoria"
+                    type="text"
+                    class="form-control"
+                    placeholder="Ej: informatica basica, herramientas ofimaticas, planillas, programacion..."
+                    maxlength="120"
+                    minlength="2"
+                  />
                 </div>
                 <div class="mb-3">
                   <label for="imagen">Imagen</label>
@@ -159,14 +170,16 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="genero">Genero</label>
-                  <select id="genero" class="form-control">
-                    <option value="">Selecione una opcion</option>
-                    <option value="accion">Accion</option>
-                    <option value="drama">Drama</option>
-                    <option value="comedia">Comedia</option>
-                    <option value="aventura">Aventura</option>
-                  </select>
+                  <label for="descripcion">Descripcion</label>
+                  <textarea
+                    id="descripcion"
+                    type="text"
+                    rows="4"
+                    class="form-control"
+                    placeholder="Ej: Este es un curso donde aprenderas a realizar maquetados eficientes..."
+                    maxlength="200"
+                    minlength="2">
+                  </textarea>
                 </div>
                 <button class="btn btn-primary" type="submit">Enviar</button>
               </form>
@@ -220,7 +233,8 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c29a7fae13.js" crossorigin="anonymous"></script>
-    <script src="../js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="../js/admin.js" type="module"></script>
 
 </body>
 
