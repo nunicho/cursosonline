@@ -14,7 +14,7 @@ function crearColumna(curso){
 
     <aside class="col-12 col-md-4 col-lg-3 mb-3">
     <div class="card" >
-    <img src="${curso.imagen}" class="card-img-top" alt="${curso.nombre}">
+    <img src="${curso.imagen}"  alt="${curso.nombre}">
       <div class="card-body">
         
       <h5 class="card-title">${curso.nombre}</h5>
@@ -136,12 +136,12 @@ function carritoHTML(){
      const { imagen, titulo, precio, cantidad, id } = curso   
      const row = document.createElement('tr');
         row.innerHTML = `
-        <td><img src="${imagen}" width="50"></td>
+        <td><img src="${imagen}" width="50" class="rounded-circle"></td>
         <td>${titulo}</td>
-        <td>${precio}</td>
-        <td>${cantidad}</td>
+        <td>$${precio}</td>
+        
         <td>
-        <a href="#" class="borrar-curso" data-id="${id}"> X </a>
+        <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
         </td>
     `
     // Agrega el HTML del carrito en el tbody

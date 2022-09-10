@@ -61,36 +61,39 @@
                               <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                           </form>
-                        </li>
-                        <li>
-                          <i class="fa-solid fa-cart-arrow-down fs-3 text-info mx-2 my-2"></i>
-                          <div id="carrito">
-                                  
-                            <table id="lista-carrito" class="u-full-width">
+                        </li>                                 
+                        
+                        <li class="nav-item dropdown mx-2 mb-2">
+                          <a class="nav-link btn btn-info dropdown-toggle text-white" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-cart-arrow-down text-white fs-5 text-info"></i>
+                          </a>
+                          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                            <li id="carrito">
+                              <table id="lista-carrito" class="u-full-width">
                                 <thead>
                                     <tr>
-                                        <th>Imagen</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th>Cantidad</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
                             </table>
-                            <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
-                           </div>
-                      </li>
-
-
-
+                            <div class="d-flex d-inline justify-content-evenly">
+                            <a href="#" id="vaciar-carrito" class="btn btn-warning u-full-width">Vaciar</a>
+                            <a href="pages/error.html" id="hacer-compra" class=" btn btn-success on u-full-width">Comprar</a>
+                          </div>  
+                          </li>
+                          </ul>
+                      </li>                                    
                         <li class="nav-item">
                             <button class="btn btn-info py-0 mx-2 mb-2">
                               <a class="nav-link text-white" href="pages/suscripcion.html">Suscríbete</a>
                             </button>
-                          </li>
-
-                        
+                         </li>               
                                           
                         <li class="nav-item">
                         <a href="pages/login.html" class="btn btn-info text-white p-2 mx-2 mb-2" type="button" >
