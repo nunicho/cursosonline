@@ -20,10 +20,9 @@ function crearColumna(curso){
       <h5 class="card-title">${curso.nombre}</h5>
         <h6 class="precio">${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>    
-        <a href="#" class="btn btn-success button input agregar-carrito" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
         <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
-        
-          
+                 
       </div>
     </div>
   </aside>
