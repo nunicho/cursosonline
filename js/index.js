@@ -178,6 +178,57 @@ for(let curso of listaCursos){
     let nombre = curso.nombre.toLowerCase();
     if(nombre.indexOf(texto) !== -1){
         resultado.innerHTML += `
+        <aside class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="card" >
+        <img src="${curso.imagen}"  alt="${curso.nombre}">
+          <div class="card-body">
+            
+          <h5 class="card-title">${curso.nombre}</h5>
+            <h6 class="precio">${curso.precio} </h6> 
+            <p> ${curso.descripcion}</p>    
+            <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+            <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
+                     
+          </div>
+        </div>
+      </aside>
+    
+    
+    
+         `
+    }
+}
+if(resultado.innerHTML === ''){
+    resultado.innerHTML += `<p>Producto no encontrado...</p>
+     `
+}
+}
+
+boton.addEventListener('click', filtrar)
+buscador.addEventListener('keyup', filtrar)
+
+filtrar();
+
+/*
+
+const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
+
+
+const buscador= document.querySelector('#buscador');
+const boton = document.querySelector('#boton');
+const resultado = document.querySelector('#grilla')
+
+console.log(listaCursos)
+
+const filtrar = ()=>{
+// console.log(buscador.value);
+resultado.innerHTML = '';
+const texto = buscador.value.toLowerCase ();
+
+for(let curso of listaCursos){
+    let nombre = curso.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+        resultado.innerHTML += `
         <p>${curso.nombre} - Valor: ${curso.precio}</p>
          `
     }
@@ -192,3 +243,6 @@ boton.addEventListener('click', filtrar)
 buscador.addEventListener('keyup', filtrar)
 
 filtrar();
+
+
+*/
