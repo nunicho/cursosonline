@@ -167,10 +167,9 @@ const buscador= document.querySelector('#buscador');
 const boton = document.querySelector('#boton');
 const resultado = document.querySelector('#grilla')
 
-console.log(listaCursos)
 
 const filtrar = ()=>{
-// console.log(buscador.value);
+
 resultado.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 
@@ -204,45 +203,10 @@ if(resultado.innerHTML === ''){
 }
 }
 
-boton.addEventListener('click', filtrar)
-buscador.addEventListener('keyup', filtrar)
-
-filtrar();
-
-/*
-
-const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
-
-
-const buscador= document.querySelector('#buscador');
-const boton = document.querySelector('#boton');
-const resultado = document.querySelector('#grilla')
-
-console.log(listaCursos)
-
-const filtrar = ()=>{
-// console.log(buscador.value);
-resultado.innerHTML = '';
-const texto = buscador.value.toLowerCase ();
-
-for(let curso of listaCursos){
-    let nombre = curso.nombre.toLowerCase();
-    if(nombre.indexOf(texto) !== -1){
-        resultado.innerHTML += `
-        <p>${curso.nombre} - Valor: ${curso.precio}</p>
-         `
-    }
-}
-if(resultado.innerHTML === ''){
-    resultado.innerHTML += `<p>Producto no encontrado...</p>
-     `
-}
-}
 
 boton.addEventListener('click', filtrar)
 buscador.addEventListener('keyup', filtrar)
 
+
 filtrar();
 
-
-*/
