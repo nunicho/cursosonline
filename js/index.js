@@ -168,8 +168,8 @@ const boton = document.querySelector('#boton');
 const resultado = document.querySelector('#grilla')
 
 
-const filtrar = ()=>{
-
+const filtrar = (e)=>{
+    e.preventDefault()
 resultado.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 
@@ -198,7 +198,14 @@ for(let curso of listaCursos){
     }
 }
 if(resultado.innerHTML === ''){
-    resultado.innerHTML += `<p>Producto no encontrado...</p>
+    resultado.innerHTML += `<p><b>Lo sentimos, no hemos encontrado resultados para</b></p>
+    <p class="fs-5"><i><b> "${texto}"</b></i><p>
+    <p class="my-0"> <b> Modifica tu búsqueda. Aquí tienes algunas ideas: </b> <p>
+    <ul>
+    <li>Asegúrate de que todas las palabras están escritas correctamente.</li>
+    <li>Prueba con términos de búsqueda diferentes.</li>
+    <li>Prueba con términos de búsqueda más generales.</li>
+    </ul>
      `
 }
 }
