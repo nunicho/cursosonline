@@ -217,3 +217,5 @@ buscador.addEventListener('keyup', filtrar)
 
 filtrar();
 
+/*------------------------------------------------------------ BARRA BUSCADORA CATEGORIAS*/
+
