@@ -32,7 +32,6 @@ function crearColumna(curso){
 `
 }
 
-
 /*------------------------------------------------------------ CARRITO DE COMPRAS*/
 
 
@@ -159,4 +158,62 @@ function limpiarHTML(){
 }
 
 
+/*------------------------------------------------------------ BARRA BUSCADORA*/
+
+const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
+
+
+const buscador= document.querySelector('#buscador');
+const boton = document.querySelector('#boton');
+const resultado = document.querySelector('#grilla')
+
+
+const filtrar = (e)=>{
+    e.preventDefault()
+resultado.innerHTML = '';
+const texto = buscador.value.toLowerCase ();
+
+for(let curso of listaCursos){
+    let nombre = curso.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+        resultado.innerHTML += `
+        <aside class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="card" >
+        <img src="${curso.imagen}"  alt="${curso.nombre}">
+          <div class="card-body">
+            
+          <h5 class="card-title">${curso.nombre}</h5>
+            <h6 class="precio">${curso.precio} </h6> 
+            <p> ${curso.descripcion}</p>    
+            <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+            <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
+                     
+          </div>
+        </div>
+      </aside>
+    
+    
+    
+         `
+    }
+}
+if(resultado.innerHTML === ''){
+    resultado.innerHTML += `<p><b>Lo sentimos, no hemos encontrado resultados para</b></p>
+    <p class="fs-5"><i><b> "${texto}"</b></i><p>
+    <p class="my-0"> <b> Modifica tu búsqueda. Aquí tienes algunas ideas: </b> <p>
+    <ul>
+    <li>Asegúrate de que todas las palabras están escritas correctamente.</li>
+    <li>Prueba con términos de búsqueda diferentes.</li>
+    <li>Prueba con términos de búsqueda más generales.</li>
+    </ul>
+     `
+}
+}
+
+
+boton.addEventListener('click', filtrar)
+buscador.addEventListener('keyup', filtrar)
+
+
+filtrar();
 
