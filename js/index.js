@@ -16,13 +16,13 @@ function crearColumna(curso){
     <div class="card" >
     <img src="${curso.imagen}"  alt="${curso.nombre}">
       <div class="card-body">
-        
+      <h6> Categoría: ${curso.categoria}
       <h5 class="card-title">${curso.nombre}</h5>
-        <h6 class="precio">${curso.precio} </h6> 
+        <h6 class="precio">Precio: $${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>    
         <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
-        <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
-                 
+        <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
+                                
       </div>
     </div>
   </aside>
@@ -31,6 +31,11 @@ function crearColumna(curso){
 
 `
 }
+
+function detalleCurso(codigo){
+    window.location.href = window.location.origin + '/pages/detallespyton.html?codigo='+codigo;
+}
+
 
 /*------------------------------------------------------------ CARRITO DE COMPRAS*/
 
@@ -181,12 +186,12 @@ for(let curso of listaCursos){
         <div class="card" >
         <img src="${curso.imagen}"  alt="${curso.nombre}">
           <div class="card-body">
-            
+          <h6> Categoría: ${curso.categoria}  
           <h5 class="card-title">${curso.nombre}</h5>
-            <h6 class="precio">${curso.precio} </h6> 
+            <h6 class="precio">Precio: $ ${curso.precio} </h6> 
             <p> ${curso.descripcion}</p>    
             <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
-            <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
+            <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                      
           </div>
         </div>

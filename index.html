@@ -28,42 +28,30 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-lg-0 mt-2">
-                        <li class="nav-item dropdown mx-2 mb-2">
-                            <a class="nav-link btn btn-info dropdown-toggle text-white" href="#" id="navbarDropdown"
-                              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Categorias
-                            </a>
-                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Programación</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Ofimática</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Idiomas</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Data</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Multimedia</a>
-                              </li>
-                            </ul>
-                        </li>
-                        <li>
-                          <form class="d-flex mx-2">
-                            <input id="buscador" class="form-control" type="text" maxlength="25" minlength="1" placeholder="Busca cualquier curso"
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">                   
+                    <ul class="navbar-nav ms-auto mb-lg-0 mt-2">                                             
+                          <li>
+                            <form>
+                            <select id="" class="form-control bg-info text-light ">
+                              <option value="">Categorías</option>
+                              <option value="programacion">Programación</option>
+                              <option value="ofimatica">Ofimática</option>
+                              <option value="idiomas">Idiomas</option>
+                              <option value="data">Data</option>
+                              <option value="data">Multimedia</option>
+                            </select>
+                          </form> 
+                          </li>
+                         <li>
+                          <form class="d-flex mx-2 ">
+                            <input id="buscador" class="form-control" type="text" maxlength="40" minlength="1" placeholder="Busca cualquier curso"
                               aria-label="Search" />
                             <button class="btn btn-info text-white" id="boton">
                               <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
                           </form>
                         </li>                                 
-                        
-                        <li class="nav-item dropdown mx-2 mb-2">
+                                                <li class="nav-item dropdown mx-2 mb-2">
                           <a class="nav-link btn btn-info dropdown-toggle text-white" href="#" id="navbarDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-cart-arrow-down text-white fs-5 text-info"></i>
