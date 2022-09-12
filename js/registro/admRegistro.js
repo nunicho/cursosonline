@@ -10,7 +10,7 @@ function cargaInicial(){
 
 
 function crearFila (itemPersona){
-    console.log(itemPersona)
+
     let tablaPersonas = document.querySelector("#tablaPersonas");
     tablaPersonas.innerHTML += `<tr>
     <th scope="row">${itemPersona.codigo}</th>

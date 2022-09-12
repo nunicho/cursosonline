@@ -5,39 +5,20 @@ let listaPersonas = JSON.parse(localStorage.getItem("listaPersonasKey")) || [];
 let codigo = document.querySelector("#id");
 let nombre = document.querySelector("#nombre");
 let contrasena = document.querySelector("#contrasena");
-let tipo = document.querySelector('#tipo')
+let tipo = document.querySelector("#tipo");
 let formulario = document.querySelector("#formRegistro");
 
 formulario.addEventListener("submit", crearPersona);
 
 codigo.value = uuidv4();
-tipo.value = 'Usuario'
+tipo.value = "Usuario";
 
-cargaInicial();
-
-function cargaInicial(){
-    if (listaPersonas.length > 0) {
-        listaPersonas.map((personas)=>{crearFila(personas)})
-    }
-}
-
-
-function crearFila (itemPersona){
-    console.log(itemPersona)
-    let tablaPersonas = document.querySelector("#tablaPersonas");
-    tablaPersonas.innerHTML += `<tr>
-    <th scope="row">${itemPersona.codigo}</th>
-    <td>${itemPersona.nombre}</td>
-    <td>${itemPersona.contrasena}</td>
-  </tr>`
-
-}
 function crearPersona(e) {
   e.preventDefault();
   //AGREGAR VALIDACIONES CAMI.
 
-  // if (personaNueva) {
-  //CREAR CURSO
+
+  //CREAR persona
   const nuevaPersona = new Persona(
     codigo.value,
     nombre.value,
@@ -52,17 +33,7 @@ function crearPersona(e) {
   guardarDatosEnLS();
   // LIMPIAR formulario
   limpiarFormulario();
-  // //dibujar Persona
-  // crearFila(nuevoCurso)
-  // //CERRAR LA VENTANA MODAL
-  // Swal.fire('El curso fue cargado correctamente!')
-  // modalFormCurso.hide();
-
-  // } else {
-  //   actualizarCurso();
-  // }
 }
-// }
 
 function guardarDatosEnLS() {
   localStorage.setItem("listaPersonasKey", JSON.stringify(listaPersonas));
@@ -70,7 +41,8 @@ function guardarDatosEnLS() {
 function limpiarFormulario() {
   formRegistro.reset();
   codigo.value = uuidv4();
-  codigo.className = "form-control";
+  codigo.className = "form-control text-dark";
   nombre.className = "form-control";
   contrasena.className = "form-control";
+  tipo.className = "form-control text-dark";
 }
