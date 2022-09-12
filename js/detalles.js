@@ -30,7 +30,7 @@ let detalle = document.querySelector('#seccionDetalle')
       <div class="my-4 col-12 col-md-12 col-lg-12">
         <p class="card-text">
           Categoria:
-          <span class="badge rounded-pill bg-dark ">${cursoBuscado.categoria}</span>
+          <span class="badge rounded-pill bg-dark">${cursoBuscado.categoria}</span>
         </p>
       </div>
       <div class=" col-12 col-md-12 col-lg-12 ">
