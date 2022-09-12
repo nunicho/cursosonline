@@ -1,5 +1,6 @@
 export default class Persona {
-  constructor(nombre, contrasena) {
+  constructor(codigo,nombre, contrasena) {
+    this.codigo= codigo;
     this.nombre = nombre;
     this.contrasena = contrasena;
   }

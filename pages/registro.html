@@ -40,20 +40,11 @@
             <h3 class="text-center fs-1 fw-bold">Bienvenido!</h3>
           </div>
           <div class="my-5">
-            <form id="formPelicula">
-              <!-- <div class="mb-3">
-              <label for="codigo">Codigo</label>
-              <input
-                id="codigo"
-                type="text"
-                class="form-control"
-                placeholder="123"
-                maxlength="5"
-                minlength="1"
-                disabled
-              />
-            </div> -->
-              <!-- al de arriva lo dejo asi por si le ponemos codigo a cada usuario -->
+            <form id="formRegistro">
+              <div class="mb-3">
+                <label for="titulo" class="text-dark fs-5">ID</label>
+                <input id="id" type="text" class="form-control" disabled />
+              </div>
               <div class="mb-3">
                 <label for="titulo" class="text-dark fs-5">Nombre</label>
                 <input
@@ -72,7 +63,7 @@
                   >Contraseña</label
                 >
                 <input
-                  id="imagen"
+                  id="contrasena"
                   type="text"
                   class="form-control"
                   placeholder="Ingresa Contraseña de hasta 8 caracteres."
@@ -99,10 +90,10 @@
                 class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm"
                 id="btnRegistrarse"
                 type="submit"
-                onclick="detalleUsuario()"
               >
-              <a  class="text-decoration-none fw-semibold text-white" >Registrarse</a>
-                
+                <a class="text-decoration-none fw-semibold text-white"
+                  >Registrarse</a
+                >
               </button>
             </form>
             <div class="p-3">
@@ -134,6 +125,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <script src="../js/registro/classUsuario.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="../js/registro/app.js" type="module"></script>
   </body>
 </html>
