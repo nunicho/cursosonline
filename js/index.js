@@ -174,7 +174,7 @@ const resultado = document.querySelector('#grilla')
 
 
 const filtrar = (e)=>{
-    e.preventDefault()
+    //e.preventDefault()
 resultado.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 
@@ -185,13 +185,13 @@ for(let curso of listaCursos){
         <aside class="col-12 col-md-4 col-lg-3 mb-3">
         <div class="card" >
         <img src="${curso.imagen}"  alt="${curso.nombre}">
-          <div class="card-body">
-          <h6> Categoría: ${curso.categoria}  
-          <h5 class="card-title">${curso.nombre}</h5>
-            <h6 class="precio">Precio: $ ${curso.precio} </h6> 
-            <p> ${curso.descripcion}</p>    
-            <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
-            <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
+        <div class="card-body">
+        <h6> Categoría: ${curso.categoria}
+        <h5 class="card-title">${curso.nombre}</h5>
+          <h6 class="precio">Precio: $${curso.precio} </h6> 
+          <p> ${curso.descripcion}</p>    
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+          <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                      
           </div>
         </div>
@@ -223,4 +223,68 @@ buscador.addEventListener('keyup', filtrar)
 filtrar();
 
 /*------------------------------------------------------------ BARRA BUSCADORA CATEGORIAS*/
+//Variables
+const marca = document.querySelector('#marca')
+const cursoCategoria = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
+
+//Generar un objeto con la búsqueda
+const datosBusqueda = {
+    marca: '',
+}
+
+//contenedor para los resultados
+const resultadoCategoria = document.querySelector('#grilla')
+
+//Eventos
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarCursos(cursos);
+
+})
+
+//Event listener para los select de búsqueda 
+marca.addEventListener('change', e =>{
+    datosBusqueda.marca = e.target.value;
+    filtrarAuto();
+})
+
+// Funciones
+function mostrarCursos (cursos){
+cursos.forEach (curso =>{
+ const cursoHTML = document.createElement ('aside')
+ cursoHTML.textContent = `
+ <aside class="col-12 col-md-4 col-lg-3 mb-3">
+ <div class="card" >
+ <img src="${curso.imagen}"  alt="${curso.nombre}">
+ <div class="card-body">
+ <h6> Categoría: ${curso.categoria}
+ <h5 class="card-title">${curso.nombre}</h5>
+   <h6 class="precio">Precio: $${curso.precio} </h6> 
+   <p> ${curso.descripcion}</p>    
+   <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+   <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>            
+   </div>
+ </div>
+</aside>
+ 
+ `
+ resultadoCategoria.appendChild(cursoHTML)
+
+})
+
+}
+
+// Función que filtra en base a la búsqueda
+
+function filtrarAuto (){
+const resultadoFiltrado = cursoCategoria.filter(filtrarMarca)
+mostrarCursos(resultadoFiltrado)
+}
+
+function filtrarMarca (curso){
+const {marca} = datosBusqueda
+    if(marca){
+    return curso.marca === marca;
+}
+return curso;
+}
