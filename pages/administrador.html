@@ -145,7 +145,7 @@
                     maxlength="10"
                     minlength="2"
                   />
-                </div>
+                <!-- </div>
                 <div class="mb-3">
                   <label for="categoria">Categoria</label>
                   <input
@@ -156,6 +156,18 @@
                     maxlength="30"
                     minlength="2"
                   />
+                </div> -->
+
+                <div class="mb-3">
+                  <label for="categoria">Categoría</label>
+                  <select id="categoria" class="form-control">
+                    <option value="">Seleccione una opcion</option>
+                    <option value="programacion">Programación</option>
+                    <option value="ofimatica">Ofimática</option>
+                    <option value="idiomas">Idiomas</option>
+                    <option value="data">Data</option>
+                    <option value="data">Multimedia</option>
+                  </select>
                 </div>
                 <div class="mb-3">
                   <label for="imagen">Imagen</label>
@@ -180,7 +192,7 @@
                     minlength="2">
                   </textarea>
                 </div>
-                <button class="btn btn-primary" type="submit">Enviar</button>
+                <button class="btn btn-primary" id="btnCrearCurso" type="submit">Enviar</button>
               </form>
             </div>
           </div>
@@ -238,3 +250,20 @@
 </body>
 
 </html>
+
+
+<!-- 
+<div class="mb-3">
+  <label for="categoria">Categoria</label>
+  <input
+    id="categoria"
+    type="text"
+    class="form-control"
+    placeholder="Ej: informatica basica, herramientas ofimaticas, planillas, programacion..."
+    maxlength="30"
+    minlength="2"
+  />
+</div> -->
+
+
+

@@ -1,4 +1,5 @@
 import Curso from "./classCurso.js";
+import {cantidadCaracteres, validarPrecio, validarCategoría, validarImagen, validarDescripcion} from './helpers.js';
 
 let listaCursos = JSON.parse(localStorage.getItem("listaCursosKey")) || [];
 
@@ -14,9 +15,23 @@ let formCurso = document.querySelector("#formCurso")
 
 let cursoNuevo = true;  // si cursoNuevo es true entonces crear un Curso, caso contrario actualizar un Curso
 
+ //eventListeners
+
 btnCrearCurso.addEventListener("click", mostrarFormulario);
 
-formCurso.addEventListener("submit", crearCurso)
+formCurso.addEventListener("submit", crearCurso);
+
+nombre.addEventListener('blur', () =>{ cantidadCaracteres(nombre)});
+
+precio.addEventListener('blur', ()=>{ validarPrecio (precio)});
+
+categoria.addEventListener('blur', ()=>{validarCategoría(categoria)});
+
+imagen.addEventListener('blur', ()=>{validarImagen(imagen)});
+
+descripcion.addEventListener('blur', ()=>{validarDescripcion(descripcion)});
+
+
 
 cargaInicial();
 
@@ -56,10 +71,15 @@ function mostrarFormulario(){
 
 function crearCurso(e){
     e.preventDefault();
-    //AGREGAR VALIDACIONES CAMI.
-    
-
-    if (cursoNuevo) {     
+    //VALIDACIONES 
+    if (
+      cantidadCaracteres(nombre) &&
+      validarPrecio(precio) &&
+      validarCategoría(categoria) &&
+      validarImagen(imagen) &&
+      validarDescripcion(descripcion)
+    )
+    {     
     //CREAR CURSO
     const nuevoCurso = new Curso(codigo.value, nombre.value, precio.value, categoria.value, imagen.value, descripcion.value)
     console.log(nuevoCurso);
@@ -80,8 +100,8 @@ function crearCurso(e){
     }
     
     
+  }
 
-}
 
 function limpiarFormulario(){
     formCurso.reset();
