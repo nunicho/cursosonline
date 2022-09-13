@@ -31,27 +31,30 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">                   
                     <ul class="navbar-nav ms-auto mb-lg-0 mt-2">                                             
                           <li>
-                            <form id="">
-                            <select id="marca" class="form-control bg-info text-light ">
-                              <option value="">Categorías</option>
-                              <option value="programacion">Programación</option>
-                              <option value="ofimatica">Ofimática</option>
-                              <option value="idiomas">Idiomas</option>
-                              <option value="data">Data</option>
-                              <option value="data">Multimedia</option>
-                            </select>
+                            <form class="d-flex mx-2 ">                             
+                            <select id="categorias" class="form-control bg-info text-light ">
+                              <option value="">Seleccione una opcion</option>
+                              <option value="PROGRAMACION">PROGRAMACION</option>
+                              <option value="OFIMATICA">OFIMATICA</option>
+                              <option value="IDIOMAS">IDIOMAS</option>
+                              <option value="DATA">DATA</option>
+                              <option value="MULTIMEDIA">MULTIMEDIA</option>
+                           </select>
+                           <button class="btn btn-info text-white mx-2" id="botonCategorias">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                          </button>
                           </form> 
                           </li>
                          <li>
                           <form class="d-flex mx-2 ">
-                            <input id="buscador" class="form-control" type="text" maxlength="40" minlength="1" placeholder="Busca cualquier curso"
+                            <input id="buscador" class="form-control" type="text" maxlength="40" minlength="1" placeholder="¿Qué quieres aprender?"
                               aria-label="Search" />
-                            <button class="btn btn-info text-white" id="boton">
+                            <!-- <button class="btn btn-info text-white" id="boton">
                               <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+                            </button> -->
                           </form>
                         </li>                                 
-                                                <li class="nav-item dropdown mx-2 mb-2">
+                          <li class="nav-item dropdown mx-2 mb-2">
                           <a class="nav-link btn btn-info dropdown-toggle text-white" href="#" id="navbarDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-cart-arrow-down text-white fs-5 text-info"></i>
@@ -141,6 +144,13 @@
         <section>
             <h1 class="my-3 fs-1 text-center">Nuestros cursos en línea</h1>
         </section>
+
+
+        <section id="busquedaPorTexto">
+
+
+        </section>
+        
         <section class="row my-3" id="grilla" >
             
           </section>

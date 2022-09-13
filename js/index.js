@@ -45,7 +45,7 @@ function detalleCurso(codigo){
 const carrito = document.querySelector('#carrito');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector ('#vaciar-carrito');
-const grilla=document.querySelector('#grilla');
+const grilla = document.querySelector('#grilla');
 let articulosCarrito =[];
 
 
@@ -167,21 +167,22 @@ function limpiarHTML(){
 
 const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
-
-const buscador= document.querySelector('#buscador');
-const boton = document.querySelector('#boton');
-const resultado = document.querySelector('#grilla')
+const buscador = document.querySelector('#buscador');
+// const boton = document.querySelector('#boton');
+const busquedaPorTexto = document.querySelector('#busquedaPorTexto')
+//const resultado = document.querySelector('#grilla')
 
 
 const filtrar = (e)=>{
-    //e.preventDefault()
-resultado.innerHTML = '';
+//e.preventDefault()
+busquedaPorTexto.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
-
-for(let curso of listaCursos){
+if(texto!==""){
+for(let curso of cursoBuscado){
     let nombre = curso.nombre.toLowerCase();
     if(nombre.indexOf(texto) !== -1){
-        resultado.innerHTML += `
+        busquedaPorTexto.innerHTML += `
+        <h2> ¡Tenemos un curso para vos! </h2>
         <aside class="col-12 col-md-4 col-lg-3 mb-3">
         <div class="card" >
         <img src="${curso.imagen}"  alt="${curso.nombre}">
@@ -202,8 +203,8 @@ for(let curso of listaCursos){
          `
     }
 }
-if(resultado.innerHTML === ''){
-    resultado.innerHTML += `<p><b>Lo sentimos, no hemos encontrado resultados para</b></p>
+if(busquedaPorTexto.innerHTML === ''){
+    busquedaPorTexto.innerHTML += `<p><b>Lo sentimos, no hemos encontrado resultados para</b></p>
     <p class="fs-5"><i><b> "${texto}"</b></i><p>
     <p class="my-0"> <b> Modifica tu búsqueda. Aquí tienes algunas ideas: </b> <p>
     <ul>
@@ -213,78 +214,83 @@ if(resultado.innerHTML === ''){
     </ul>
      `
 }
+}else{
+
+busquedaPorTexto.innerHTML = '';
+}
 }
 
-
-boton.addEventListener('click', filtrar)
+// boton.addEventListener('click', filtrar)
 buscador.addEventListener('keyup', filtrar)
 
 
 filtrar();
 
 /*------------------------------------------------------------ BARRA BUSCADORA CATEGORIAS*/
-//Variables
-const marca = document.querySelector('#marca')
-const cursoCategoria = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
 
-//Generar un objeto con la búsqueda
-const datosBusqueda = {
-    marca: '',
+const listaCursosCategorias = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
+
+const buscadorCategorias = document.querySelector('#categorias');
+const botonCategorias = document.querySelector('#botonCategorias');
+let estado = document.querySelector('#grilla')
+let estadoPrevio = estado.innerHTML
+let resultado = estado
+
+
+
+const filtrarCategorias = (e)=>{
+    e.preventDefault()
+resultado.innerHTML = '';
+const textoCategorias = buscadorCategorias.value;
+if(textoCategorias!==""){
+for(let cursoCategoria of listaCursosCategorias){
+    let Categoria = cursoCategoria.categoria;
+    if(Categoria.indexOf(textoCategorias) !== -1){
+        resultado.innerHTML += `
+        <h2> Estos son los cursos de la categoría elegida: </h2>
+        <aside class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="card" >
+        <img src="${cursoCategoria.imagen}"  alt="${cursoCategoria.nombre}">
+        <div class="card-body">
+        <h6> Categoría: ${cursoCategoria.categoria}
+        <h5 class="card-title">${cursoCategoria.nombre}</h5>
+          <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
+          <p> ${cursoCategoria.descripcion}</p>    
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">Agregar Al Carrito</a>  
+          <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
+                     
+          </div>
+        </div>
+      </aside>
+    
+    
+    
+         `
+    }
+}
+if(resultado.innerHTML === ''){
+    resultado.innerHTML += `<p><b>Lo sentimos, no tenemos la categoría</b></p>
+    <p class="fs-5"><i><b> "${textoCategorias}"</b></i><p>
+    <p class="my-0"> <b> Modifica tu búsqueda. Aquí tienes algunas ideas: </b> <p>
+    <ul>
+    <li>Asegúrate de que todas las palabras están escritas correctamente.</li>
+    <li>Prueba con términos de búsqueda diferentes.</li>
+    <li>Prueba con términos de búsqueda más generales.</li>
+    </ul>
+     `
+}
+}else{
+    resultado.innerHTML = estadoPrevio;
+}
 }
 
-//contenedor para los resultados
-const resultadoCategoria = document.querySelector('#grilla')
 
-//Eventos
-document.addEventListener('DOMContentLoaded', () => {
-    mostrarCursos(cursos);
+botonCategorias.addEventListener('click', filtrarCategorias)
+buscadorCategorias.addEventListener('keyup', filtrarCategorias)
 
-})
 
-//Event listener para los select de búsqueda 
-marca.addEventListener('change', e =>{
-    datosBusqueda.marca = e.target.value;
-    filtrarAuto();
-})
+filtrarCategorias();
 
-// Funciones
-function mostrarCursos (cursos){
-cursos.forEach (curso =>{
- const cursoHTML = document.createElement ('aside')
- cursoHTML.textContent = `
- <aside class="col-12 col-md-4 col-lg-3 mb-3">
- <div class="card" >
- <img src="${curso.imagen}"  alt="${curso.nombre}">
- <div class="card-body">
- <h6> Categoría: ${curso.categoria}
- <h5 class="card-title">${curso.nombre}</h5>
-   <h6 class="precio">Precio: $${curso.precio} </h6> 
-   <p> ${curso.descripcion}</p>    
-   <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
-   <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>            
-   </div>
- </div>
-</aside>
- 
- `
- resultadoCategoria.appendChild(cursoHTML)
 
-})
 
-}
-
-// Función que filtra en base a la búsqueda
-
-function filtrarAuto (){
-const resultadoFiltrado = cursoCategoria.filter(filtrarMarca)
-mostrarCursos(resultadoFiltrado)
-}
-
-function filtrarMarca (curso){
-const {marca} = datosBusqueda
-    if(marca){
-    return curso.marca === marca;
-}
-return curso;
-}
