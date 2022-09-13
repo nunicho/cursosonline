@@ -11,7 +11,7 @@ console.log(cursoBuscado)
 // // dibujamos la card
 let detalle = document.querySelector('#seccionDetalle')
  detalle.innerHTML=`
-/<div class="card mb-3">
+<div class="card mb-3">
 <div class="row">
   
     <div class="card-body col-12 col-md-12 col-lg-12 text-center">

@@ -33,7 +33,7 @@ function crearColumna(curso){
 }
 
 function detalleCurso(codigo){
-    window.location.href = window.location.origin + '/pages/detallespyton.html?codigo='+codigo;
+    window.location.href = window.location.origin +'/pages/detalles.html?codigo='+codigo;
 }
 
 
