@@ -41,6 +41,7 @@ function guardarDatosEnLS() {
 function limpiarFormulario() {
   formRegistro.reset();
   codigo.value = uuidv4();
+  tipo.value = "Usuario";
   codigo.className = "form-control text-dark";
   nombre.className = "form-control";
   contrasena.className = "form-control";
