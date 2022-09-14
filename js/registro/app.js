@@ -1,4 +1,5 @@
 import Persona from "./classUsuario.js";
+import {cantidadCaracteres, validarContrasena} from "./helpersRegistro.js";
 
 let listaPersonas = JSON.parse(localStorage.getItem("listaPersonasKey")) || [];
 
@@ -15,24 +16,26 @@ tipo.value = "Usuario";
 
 function crearPersona(e) {
   e.preventDefault();
-  //AGREGAR VALIDACIONES CAMI.
-
+ //validaciones
+   if(cantidadCaracteres(nombre) && validarContrasena(contrasena)){
+    const nuevaPersona = new Persona(
+      codigo.value,
+      nombre.value,
+      contrasena.value,
+      tipo.value
+    );
+  
+    //GUARDAR CURSO EN EL ARREGLO
+    listaPersonas.push(nuevaPersona);
+    console.log(listaPersonas);
+    // guardar los datos en local storage
+    guardarDatosEnLS();
+    // LIMPIAR formulario
+    limpiarFormulario();
+   }
 
   //CREAR persona
-  const nuevaPersona = new Persona(
-    codigo.value,
-    nombre.value,
-    contrasena.value,
-    tipo.value
-  );
-
-  //GUARDAR CURSO EN EL ARREGLO
-  listaPersonas.push(nuevaPersona);
-  console.log(listaPersonas);
-  // guardar los datos en local storage
-  guardarDatosEnLS();
-  // LIMPIAR formulario
-  limpiarFormulario();
+ 
 }
 
 function guardarDatosEnLS() {
@@ -46,3 +49,4 @@ function limpiarFormulario() {
   contrasena.className = "form-control";
   tipo.className = "form-control text-dark";
 }
+// 
