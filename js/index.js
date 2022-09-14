@@ -353,7 +353,6 @@ filtrar();
 
 /*------------------------------------------------------------ BARRA BUSCADORA CATEGORIAS*/
 
-
 const listaCursosCategorias = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
 const buscadorCategorias = document.querySelector('#categorias');
@@ -365,7 +364,7 @@ let resultado = estado
 
 
 const filtrarCategorias = (e)=>{
-    // e.preventDefault()
+    e.preventDefault()
 resultado.innerHTML = '';
 const textoCategorias = buscadorCategorias.value;
 if(textoCategorias!==""){
@@ -381,8 +380,7 @@ for(let cursoCategoria of listaCursosCategorias){
         <h6> Categoría: ${cursoCategoria.categoria}
         <h5 class="card-title">${cursoCategoria.nombre}</h5>
           <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
-          <p> ${cursoCategoria.descripcion}</p>
-          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
+          <p> ${cursoCategoria.descripcion}</p>    
           <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">Agregar Al Carrito</a>  
           <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
                      
@@ -418,40 +416,3 @@ buscadorCategorias.addEventListener('keyup', filtrarCategorias)
 
 filtrarCategorias();
 
-
-
-/*------------------------------------------------------------ TEMPORIZADOR */
-
-const getRemainingTime = deadline => {
-    let now = new Date(),
-        remainTime = (new Date(deadline) - now + 1000) / 1000,
-        remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
-        remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2),
-        remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2),
-        remainDays = Math.floor(remainTime / (3600 * 24));
-  
-    return {
-      remainSeconds,
-      remainMinutes,
-      remainHours,
-      remainDays,
-      remainTime
-    }
-  };
-  
-  const countdown = (deadline,elem,finalMessage) => {
-    const el = document.getElementById(elem);
-  
-    const timerUpdate = setInterval( () => {
-      let t = getRemainingTime(deadline);
-      el.innerHTML = `¡Gran lanzamiento! ¡Nuestros cursos a US$ 10! Tiempo restante: ${t.remainDays}d, ${t.remainHours}h, ${t.remainMinutes}m, ${t.remainSeconds}s.`;
-  
-      if(t.remainTime <= 1) {
-        clearInterval(timerUpdate);
-        el.innerHTML = finalMessage;
-      }
-  
-    }, 1000)
-  };
-
-countdown ('Mon Oct 31 2022 01:06:16 GMT-0300', 'clock', '¡Estate atento a nuestro próximo descuento!');
