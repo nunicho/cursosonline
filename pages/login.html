@@ -2,7 +2,6 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-
     <link rel="shortcut icon" href="../img/logo/favicononlinecourses.png" type="image/x-icon">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,9 +13,6 @@
         content="cursos, capacitaciones, ecommerce, enseñanza, aprendizaje, desarrollo, habilidades, diseño, marketing, aprender, programacion, negocios, estudio, venta, estudiante, mentor" />
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
-    <title>Log-In</title>
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,11 +24,9 @@
    
     
     <link rel="stylesheet" href="../css/style.css">
-    
-    
-    <title>Log-In OnlineCourses.</title>
+    <title>Log-In</title>
   </head>
-  <body class="bg-secondary d-flex justify-content-center align-items-center vh-100">
+  <body class="bg-info d-flex justify-content-center align-items-center vh-100">
     <div
       class="bg-white p-5 rounded-5 text-secondary shadow"
       style="width: 25rem"
@@ -46,10 +40,9 @@
         />
       </div>
       <div class="text-center fs-1 fw-bold">OnlineCourses.</div>
-
       <!-- formulario -->
-      <form  action="index.html" name="formAcceso" id="formAcceso">
-       <div class="input-group mb-3">
+      <form  action="../index.html" name="form" id="formLogin">
+      <div class="input-group mb-3">
         <span class="input-group-text bg-secondary" id="basic-addon1"><i class="bi bi-person"></i></span>
         <!-- input de usuario -->
         <input type="text" class="form-control" placeholder="Nombre de Usuario" aria-label="usuario" aria-describedby="basic-addon1" id="usuario" name="login">
@@ -74,24 +67,15 @@
         </div>
       </div>
       <div class="d-grid gap-2 ">
-
         <!-- boton de ingreso -->
         <button class="btn btn-secondary text-white w-100 mt-4 fw-semibold shadow-sm " onclick="Ir()" type="button" id="btnIngresar">Ingresar</button>
       </div>
-      <div>
-        <a
-            href="../pages/loginAdmin.html"
-            class="text-decoration-none text-info fw-semibold fst-italic"
-            style="font-size: 0.9rem"
-            >Ir a Administrador</a
-          >
-      </div>
+      
       <div class="d-flex gap-1 justify-content-center mt-1">
-        <div>¿No eres usuario aun?</div>
-        <a href="../pages/registro.html" class="text-decoration-none text-info fw-semibold"
-          >Registrate!</a
+        <div>¿No eres usuario aún?</div>
+        <a href="registro.html" class="text-decoration-none text-info fw-semibold"
+          >Regístrate!</a
         >
-      </button>
       </div>
       <div class="p-3">
         <div class="border-bottom text-center" style="height: 0.9rem">
@@ -105,9 +89,18 @@
       <button class="btn btn-outline-secondary text-black w-100 mt-4 fw-semibold shadow-sm" type="button"><i class="bi bi-google"></i> <a href="http://google.com" id="google" > Accedé con Google</a></button>
       
       </div>
+           
+        
+        <a href="../pages/loginAdmin.html"
+            class="text-decoration-none text-info fw-semibold fst-italic"
+            style="font-size: 0.9rem">Ir a Administrador</a>
+        
     </div>
-  </form> 
+    
+  </form>
 
+   
+    
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
@@ -115,7 +108,5 @@
     <script src="https://kit.fontawesome.com/c29a7fae13.js" crossorigin="anonymous"></script>
    
     <script src="../js/logingral.js"></script>
-    <!-- <script src="../js/registro/app.js" type="module"></script> -->
-  
   </body>
 </html>
