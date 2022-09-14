@@ -69,7 +69,7 @@ function cargarEventListeners(){
 
 
 function agregarCurso(e){
-    //e.preventDefault()
+    // e.preventDefault()
     if(e.target.classList.contains('agregar-carrito')){
         const cursoSeleccionado = e.target.parentElement.parentElement;
 
@@ -298,7 +298,7 @@ const busquedaPorTexto = document.querySelector('#busquedaPorTexto')
 
 
 const filtrar = (e)=>{
-//e.preventDefault()
+// e.preventDefault()
 busquedaPorTexto.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 if(texto!==""){
@@ -365,7 +365,7 @@ let resultado = estado
 
 
 const filtrarCategorias = (e)=>{
-    //e.preventDefault()
+    // e.preventDefault()
 resultado.innerHTML = '';
 const textoCategorias = buscadorCategorias.value;
 if(textoCategorias!==""){
