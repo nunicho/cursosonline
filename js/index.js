@@ -19,7 +19,8 @@ function crearColumna(curso){
       <h6> Categoría: ${curso.categoria}
       <h5 class="card-title">${curso.nombre}</h5>
         <h6 class="precio">Precio: $${curso.precio} </h6> 
-        <p> ${curso.descripcion}</p>    
+        <p> ${curso.descripcion}</p>
+        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
         <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
         <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                                 
@@ -163,6 +164,129 @@ function limpiarHTML(){
 }
 
 
+
+/*------------------------------------------------------------ CURSOS FAVORITOS*/
+
+const favoritos = document.querySelector('#favoritos');
+const contenedorFavoritos = document.querySelector('#lista-favoritos tbody');
+const vaciarFavoritosBtn = document.querySelector ('#vaciar-favoritos');
+const listaCursosFavoritos=document.querySelector('#grilla');
+let articulosFavoritos =[];
+
+
+cargarEventListenersFavoritos();
+
+function cargarEventListenersFavoritos(){
+// cuando agregas un curso presionando "Agregar a favoritos"
+    listaCursosFavoritos.addEventListener('click', agregarCursoFavoritos);
+
+
+    //Elimina cursos del favoritos
+    favoritos.addEventListener('click', eliminarCursoFavoritos)
+
+    //
+    vaciarFavoritosBtn.addEventListener('click', () =>{
+        articulosFavoritos =[]; // reseteamos el arreglo
+        limpiarHTMLFavoritos(); // Eliminamos todo el HTML
+    })
+}
+
+
+function agregarCursoFavoritos(e){
+    e.preventDefault()
+    if(e.target.classList.contains('agregar-favorito')){
+        const cursoSeleccionadoFavorito = e.target.parentElement.parentElement;
+
+leerDatosCursoFavoritos(cursoSeleccionadoFavorito);
+    }
+ 
+}
+
+//Elimina los datos de favoritos
+function eliminarCursoFavoritos (e){
+if(e.target.classList.contains('borrar-curso')){
+    const cursoIdFavorito = e.target.getAttribute('data-id')
+    // Elimina el arreglo de articuloFavorito por el data-id
+    articulosFavoritos = articulosFavoritos.filter( curso => curso.id !== cursoIdFavorito);
+favoritosHTML(); // Iterar sobre favorito y mostrar su HTML
+}   
+
+}
+
+//Lee el contenido del HTML al que le dimos click y extrae la información del curo
+
+function leerDatosCursoFavoritos(curso){
+// console.log(curso)
+// Crear un objeto con el contenido del curso actual
+const infoCursoFavorito = {
+    imagen: curso.querySelector('img').src,
+    titulo: curso.querySelector('h5').textContent,
+    precio: curso.querySelector('.precio').textContent,
+    id: curso.querySelector('a').getAttribute('data-id'),
+    cantidad: 1
+}
+// Revisa si un elemento ya existe en favorito
+const existeFavorito = articulosFavoritos.some(curso => curso.id === infoCursoFavorito.id)
+if (existeFavorito){
+    //Actualizamos la cantidad
+    const cursos = articulosFavoritos.map( curso => {
+    if (curso.id === infoCurso.id){
+        curso.cantidad ++;
+        return curso; // retorna el objeto actualizado
+    }else{
+        return curso; // retorna los objetos que no son los duplicados
+    }
+
+    });
+    articulosFavoritos = [...cursos];
+}else{
+    // Agregamos el curso a favoritos
+    articulosFavoritos = [...articulosFavoritos, infoCursoFavorito]
+}
+
+// Agrega elemento al arreglo de favoritos
+;
+console.log(articulosFavoritos);
+favoritosHTML();
+}
+
+// Muestra favoritos en el HTML
+
+function favoritosHTML(){
+    // Limpiar el HTML
+    limpiarHTMLFavoritos()
+
+    //Recorre favoritos y genera el HTML
+    
+    
+    articulosFavoritos.forEach(curso => {
+     console.log(curso)
+     const { imagen, titulo, precio, cantidad, id } = curso   
+     const row = document.createElement('tr');
+        row.innerHTML = `
+        <td><img src="${imagen}" width="100"></td>
+        <td>${titulo}</td>
+        <td>${precio}</td>
+        <td>${cantidad}</td>
+        <td>
+        <a href="#" class="borrar-curso" data-id="${id}"> X </a>
+        </td>
+    `
+    // Agrega el HTML de favoritos en el tbody
+    contenedorFavoritos.appendChild(row)
+})
+}
+
+// Elimina los cursos del tbody
+
+function limpiarHTMLFavoritos(){
+   // Forma lenta
+   //  contenedorFavoritos.innerHTML = ''
+   while(contenedorFavoritos.firstChild){
+    contenedorFavoritos.removeChild(contenedorFavoritos.firstChild)
+   }
+}
+
 /*------------------------------------------------------------ BARRA BUSCADORA*/
 
 const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
@@ -190,7 +314,8 @@ for(let curso of cursoBuscado){
         <h6> Categoría: ${curso.categoria}
         <h5 class="card-title">${curso.nombre}</h5>
           <h6 class="precio">Precio: $${curso.precio} </h6> 
-          <p> ${curso.descripcion}</p>    
+          <p> ${curso.descripcion}</p>
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
           <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
           <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                      
@@ -256,7 +381,8 @@ for(let cursoCategoria of listaCursosCategorias){
         <h6> Categoría: ${cursoCategoria.categoria}
         <h5 class="card-title">${cursoCategoria.nombre}</h5>
           <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
-          <p> ${cursoCategoria.descripcion}</p>    
+          <p> ${cursoCategoria.descripcion}</p>
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
           <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">Agregar Al Carrito</a>  
           <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
                      
