@@ -444,7 +444,7 @@ const getRemainingTime = deadline => {
   
     const timerUpdate = setInterval( () => {
       let t = getRemainingTime(deadline);
-      el.innerHTML = `¡Gran lanzamiento! ¡Nuestros cursos a US$ 10! Tiempo restante: ${t.remainDays}d, ${t.remainHours}h, ${t.remainMinutes}m, ${t.remainSeconds}s`;
+      el.innerHTML = `¡Gran lanzamiento! ¡Nuestros cursos a US$ 10! Tiempo restante: ${t.remainDays}d, ${t.remainHours}h, ${t.remainMinutes}m, ${t.remainSeconds}s.`;
   
       if(t.remainTime <= 1) {
         clearInterval(timerUpdate);
