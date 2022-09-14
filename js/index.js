@@ -361,8 +361,6 @@ let estado = document.querySelector('#grilla')
 let estadoPrevio = estado.innerHTML
 let resultado = estado
 
-
-
 const filtrarCategorias = (e)=>{
     e.preventDefault()
 resultado.innerHTML = '';
@@ -371,8 +369,7 @@ if(textoCategorias!==""){
 for(let cursoCategoria of listaCursosCategorias){
     let Categoria = cursoCategoria.categoria;
     if(Categoria.indexOf(textoCategorias) !== -1){
-        resultado.innerHTML += `
-        <h2> Estos son los cursos de la categoría elegida: </h2>
+         resultado.innerHTML += `
         <aside class="col-12 col-md-4 col-lg-3 mb-3">
         <div class="card" >
         <img src="${cursoCategoria.imagen}"  alt="${cursoCategoria.nombre}">
@@ -386,6 +383,7 @@ for(let cursoCategoria of listaCursosCategorias){
                      
           </div>
         </div>
+        
       </aside>
     
     

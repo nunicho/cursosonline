@@ -70,38 +70,36 @@ function mostrarFormulario(){
     }
 
 function crearCurso(e){
-    e.preventDefault();
-    //VALIDACIONES 
-    if (
-      cantidadCaracteres(nombre) &&
-      validarPrecio(precio) &&
-      validarCategoría(categoria) &&
-      validarImagen(imagen) &&
-      validarDescripcion(descripcion)
-    )
-    {     
-    //CREAR CURSO
-    const nuevoCurso = new Curso(codigo.value, nombre.value, precio.value, categoria.value, imagen.value, descripcion.value)
-    console.log(nuevoCurso);
-    //GUARDAR CURSO EN EL ARREGLO
-    listaCursos.push(nuevoCurso);
-    //guardar los datos en local storage
-    guardarDatosEnLS()
-    // LIMPIAR CURSO
-    limpiarFormulario();
-    //dibujar curso
-    crearFila(nuevoCurso)
-    //CERRAR LA VENTANA MODAL
-    Swal.fire('El curso fue cargado correctamente!')   
-    modalFormCurso.hide();
-
-    } else {
-      actualizarCurso();
-    }
-    
-    
+      e.preventDefault();
+      //VALIDACIONES 
+      if (cursoNuevo){ 
+          generarCurso();
+      }else{
+        actualizarCurso();
+      } 
   }
-
+  
+  function generarCurso(){
+  if (
+    cantidadCaracteres(nombre), validarPrecio(precio), validarCategoría(categoria), validarImagen(imagen), validarDescripcion(descripcion)
+  )
+  {
+      const nuevoCurso = new Curso(codigo.value, nombre.value, precio.value, categoria.value, imagen.value, descripcion.value)
+      console.log(nuevoCurso);
+      //GUARDAR CURSO EN EL ARREGLO
+      listaCursos.push(nuevoCurso);
+      //guardar los datos en local storage
+      guardarDatosEnLS()
+      // LIMPIAR CURSO
+      limpiarFormulario();
+      //dibujar curso
+      crearFila(nuevoCurso)
+      //CERRAR LA VENTANA MODAL
+      Swal.fire('El curso fue cargado correctamente!')   
+      modalFormCurso.hide();
+  
+      } 
+    }
 
 function limpiarFormulario(){
     formCurso.reset();
@@ -199,3 +197,7 @@ window.borrarCurso = function (codigo) {
     //limpie el formulario
     limpiarFormulario();
   }
+
+
+
+  
