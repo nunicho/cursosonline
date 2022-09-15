@@ -54,6 +54,41 @@ font-weight:bolder;
     list-style-type: none; 
 }
 
+
+/* ----------------------------------------------------Estilos de la tabla de amdinistración */
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+    }
+    
+tr{
+    vertical-align: baseline;
+    }
+
+td{
+    font-size: small;
+}
+
+.overflow
+    {
+     max-height: 25px;
+     overflow: hidden;
+     text-overflow: ellipsis;
+    }
+    
+.overflow:hover{
+        max-height:unset;
+        overflow:visible;
+        text-overflow:unset;
+       
+    }
+.tdImagen{
+    font-size: smaller;
+}
+.tdNombre{
+    font-weight: bold;
+}
+
 /* ------------------------------------MEDIA QUERIES---------------------------------------- */
 
 @media all and (max-width: 575.98px) {
