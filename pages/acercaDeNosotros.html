@@ -10,39 +10,97 @@
     <meta name="description" content="Ecommerce - Venta de cursos online - Trabajo Práctico Fin Módulo 2" />
     <meta name=" keywords"
         content="cursos, capacitaciones, ecommerce, enseñanza, aprendizaje, desarrollo, habilidades, diseño, marketing, aprender, programacion, negocios, estudio, venta, estudiante, mentor" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>ECOMMERCE - CURSOS</title>
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous"
+      />
+      <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+      <script
+        src="https://kit.fontawesome.com/e56615906d.js"
+        crossorigin="anonymous"
+      ></script>
+      <link rel="stylesheet" href="../css/style.css" />
+    <title>Acerca de Nosotros</title>
 </head>
 
 <body>
-    <header>
+  <header class="p-4">
+    <section>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">
+            <img
+              class="logoNavbar"
+              src="../img/logo/onlinecourseslogo.png"
+              alt="logo"
+              width="67"
+              height="67"
+            />
+          </a>
+          <button
+            class="navbar-toggler btn-dark"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-lg-0 mt-2">                        
+              <li class="nav-item">
+                <button class="btn btn-info py-0 mx-2 mb-2">
+                  <a class="nav-link text-white" href="login.html"
+                    >Suscríbete</a
+                  >
+                </button>
+              </li>
 
-    </header>
+              <li class="nav-item">
+                <a
+                  href="login.html"
+                  class="btn btn-info text-white p-2 mx-2 mb-2"
+                  type="button"
+                >
+                  Iniciar Sesion
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+  </header>
     <main>
-        <section>
-            <div class="text-bg-info text-center p-5 mb-5">
-                <h1 class="display-2">Acerca de NOSOTROS</h1>
+        <section class="container p-2">
+            <div class="text-bg-info text-center p-2">
+                <h2> Acerca de NOSOTROS</h2>
             </div>
         </section>
-    </section>
-    <section class="container">
-        <div class="card mb-5 border-light">
+        </section>
+        <section class="container">
+        <div class="card mb-5 border-light cardAcercaDeNosotros">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="img/Ana.png" class="img-fluid rounded-start" alt="Ana">
+                <img src="../img/Ana.png" class="img-fluid rounded-start" alt="Ana">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title link-info">Ana Ines Lucena Hayward</h5>
-                  <p class="card-text">Hola! Mi nombre es Ana, tengo 28 años. Soy Contadora Publica Nacional, trabajo actualmente en el Ministerio de Salud Publica y en un Estudio Contable, mi cable a tierra es Crossfit. Hace un tiempo pense en hacer algo distinto a mi profesion hasta que a traves de unos amigos conoci RollingCode y con miedo de si realmente iba a poder, me inscribi, y aqui estoy conociendo el mundo de la programacion y volviendomgite loca con JS! Pero muy contenta por lo aprendido hasta ahora.</p>
+                  <p class="card-text">Hola! Mi nombre es Ana, tengo 28 años. Soy Contadora Publica Nacional, trabajo actualmente en el Ministerio de Salud Publica y en un Estudio Contable, mi cable a tierra es Crossfit. Hace un tiempo pense en hacer algo distinto a mi profesion hasta que a traves de unos amigos conoci RollingCode y con miedo de si realmente iba a poder, me inscribi, y aqui estoy conociendo el mundo de la programacion y volviendome loca con JS! Pero muy contenta por lo aprendido hasta ahora.</p>
                 </div>
               </div>
             </div>
           </div>
           <hr class="link-info">
-          <div class="card mb-5 border-light">
+          <div class="card mb-5 border-light cardAcercaDeNosotros">
             <div class="row g-0">
                 <div class="col-md-8">
                     <div class="card-body">
@@ -51,15 +109,17 @@
                     </div>
                 </div>
                 <div class="col-md-4"> 
-                    <img src="img/Mauricio.png" class="img-fluid rounded-start" alt="Mauricio">
+                    <img src="../img/Mauricio.png" class="img-fluid rounded-start" alt="Mauricio">
                   </div>  
             </div>
         </div>
+
         <hr class="link-info">
-        <div class="card mb-5 border-light">
+        
+        <div class="card mb-5 border-light cardAcercaDeNosotros">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="img/Cami.png" class="img-fluid rounded-start" alt="Camila">
+                <img src="../img/Cami.png" class="img-fluid rounded-start" alt="Camila">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -68,8 +128,11 @@
                 </div>
               </div>
             </div>
+            </div>
+
             <hr class="link-info">
-            <div class="card mb-5 border-light">
+            
+            <div class="card mb-5 border-light cardAcercaDeNosotros">
                 <div class="row g-0">
                     <div class="col-md-8">
                         <div class="card-body">
@@ -78,15 +141,17 @@
                         </div>
                     </div>
                     <div class="col-md-4"> 
-                        <img src="img/Nicolas.png" class="img-fluid rounded-start" alt="Nicolas">
+                        <img src="../img/Nicolas.png" class="img-fluid rounded-start" alt="Nicolas">
                       </div>  
                 </div>
             </div>
+
             <hr class="link-info">
-            <div class="card mb-5 border-light">
+
+            <div class="card mb-5 border-light cardAcercaDeNosotros">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="img/Matias.png" class="img-fluid rounded-start" alt="Matias Ahumada">
+                    <img src="../img/Matias.png" class="img-fluid rounded-start" alt="Matias Ahumada">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -95,18 +160,76 @@
                     </div>
                   </div>
                 </div>
-
           </div>
     </section>
     </main>
-    <footer>
-
+    <footer class="bg-dark my-3 container-fluid">
+      <section class="container">
+        <article  class="row">
+        <div class="col-12 col-md-3 col-lg-3  text-center">
+          <div >
+            <a href="../index.html"><img src="../img/logo/onlinecourseslogo.png" alt="logo" width="80" height="80"></a>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-3 text-secondary text-center">
+          <h4 class="text-white">Navegacion</h4>
+          <div class="d-flex flex-direction-column justify-content-center">
+            <ul class="fs-5">
+              <li class="noBull">
+                <a href="acercaDeNosotros.html" class="nav-link">¿Quiénes somos?</a>
+              </li>
+             
+              <li class="noBull">
+                <a href="login.html" class="nav-link">Ingresa</a>
+              </li>
+              <li class="noBull">
+                <a href="registro.html" class="nav-link">Registrate</a>
+              </li>
+              <li class="noBull">
+                <a href="login.html" class="nav-link">Subscríbete</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-3 text-secondary">
+          <h4 class="text-white text-center">Legales</h4>
+          <div class="d-flex flex-direction-column justify-content-center">
+            <ul class="fs-5">
+              <li class="noBull">
+                <a href="error.html" class="nav-link">Régimen de transparencia</a>
+              </li>
+              <li class="noBull">
+                <a href="error.html" class="nav-link">Usuario</a>
+              </li>
+              
+              <li class="noBull">
+                <a href="error.html" class="nav-link">Términos y condiciones</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-3 text-secondary">
+          <div class="text-center sm-app">
+            <h5 class="text-white fs-5">Seguinos</h5>
+            <a href="error.html"><i class="bi bi-facebook fs-4 ms-3 linkFooter"></i></a>
+            <a href="error.html"><i class="bi bi-instagram fs-4 ms-3 linkFooter"></i></a>
+            <a href="error.html"><i class="bi bi-twitter fs-4 ms-3 linkFooter"></i></a>
+          </div>
+        </div>
+        
+      </article>
+      </section>
     </footer>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
+        crossorigin="anonymous"></script><script
+        src="https://kit.fontawesome.com/c29a7fae13.js"
+        crossorigin="anonymous"
+      ></script>
+      <script
+      src="https://kit.fontawesome.com/c29a7fae13.js"
+      crossorigin="anonymous"></script>  
 </body>
 
 </html>
