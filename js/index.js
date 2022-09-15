@@ -20,8 +20,8 @@ function crearColumna(curso){
       <h5 class="card-title">${curso.nombre}</h5>
         <h6 class="precio">Precio: $${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>
-        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
-        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>    
+        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>  
         <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                                 
       </div>
@@ -69,7 +69,7 @@ function cargarEventListeners(){
 
 
 function agregarCurso(e){
-    // e.preventDefault()
+    e.preventDefault()
     if(e.target.classList.contains('agregar-carrito')){
         const cursoSeleccionado = e.target.parentElement.parentElement;
 
@@ -193,7 +193,7 @@ function cargarEventListenersFavoritos(){
 
 
 function agregarCursoFavoritos(e){
-    //e.preventDefault()
+    e.preventDefault()
     if(e.target.classList.contains('agregar-favorito')){
         const cursoSeleccionadoFavorito = e.target.parentElement.parentElement;
 
@@ -231,7 +231,7 @@ if (existeFavorito){
     //Actualizamos la cantidad
     const cursos = articulosFavoritos.map( curso => {
     if (curso.id === infoCurso.id){
-        curso.cantidad ++;
+        //curso.cantidad ++;
         return curso; // retorna el objeto actualizado
     }else{
         return curso; // retorna los objetos que no son los duplicados
@@ -292,13 +292,14 @@ function limpiarHTMLFavoritos(){
 const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
 const buscador = document.querySelector('#buscador');
-// const boton = document.querySelector('#boton');
-const busquedaPorTexto = document.querySelector('#busquedaPorTexto')
-//const resultado = document.querySelector('#grilla')
+const busquedaEstado = document.querySelector('#grilla') //document.querySelector('#busquedaPorTexto')
+let busquedaEstadoPrevio = busquedaEstado.innerHTML
+const busquedaPorTexto = busquedaEstado 
+
 
 
 const filtrar = (e)=>{
-// e.preventDefault()
+//e.preventDefault()
 busquedaPorTexto.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 if(texto!==""){
@@ -315,8 +316,8 @@ for(let curso of cursoBuscado){
         <h5 class="card-title">${curso.nombre}</h5>
           <h6 class="precio">Precio: $${curso.precio} </h6> 
           <p> ${curso.descripcion}</p>
-          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
-          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>   
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>  
           <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                      
           </div>
@@ -341,11 +342,11 @@ if(busquedaPorTexto.innerHTML === ''){
 }
 }else{
 
-busquedaPorTexto.innerHTML = '';
+busquedaPorTexto.innerHTML = busquedaEstadoPrevio
 }
 }
 
-// boton.addEventListener('click', filtrar)
+//boton.addEventListener('click', filtrar)
 buscador.addEventListener('keyup', filtrar)
 
 
@@ -362,7 +363,7 @@ let estadoPrevio = estado.innerHTML
 let resultado = estado
 
 const filtrarCategorias = (e)=>{
-    e.preventDefault()
+  e.preventDefault()
 resultado.innerHTML = '';
 const textoCategorias = buscadorCategorias.value;
 if(textoCategorias!==""){
@@ -377,8 +378,9 @@ for(let cursoCategoria of listaCursosCategorias){
         <h6> Categoría: ${cursoCategoria.categoria}
         <h5 class="card-title">${cursoCategoria.nombre}</h5>
           <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
-          <p> ${cursoCategoria.descripcion}</p>    
-          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">Agregar Al Carrito</a>  
+          <p> ${cursoCategoria.descripcion}</p> 
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${cursoCategoria.codigo}">&#9733;</a>
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">&#128722</a>  
           <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
                      
           </div>
@@ -414,3 +416,67 @@ buscadorCategorias.addEventListener('keyup', filtrarCategorias)
 
 filtrarCategorias();
 
+/*
+
+const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
+
+const buscador = document.querySelector('#buscador');
+// const boton = document.querySelector('#boton');
+const busquedaPorTexto = document.querySelector('#busquedaPorTexto')
+//const resultado = document.querySelector('#grilla')
+
+
+const filtrar = (e)=>{
+//e.preventDefault()
+busquedaPorTexto.innerHTML = '';
+const texto = buscador.value.toLowerCase ();
+if(texto!==""){
+for(let curso of cursoBuscado){
+    let nombre = curso.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+        busquedaPorTexto.innerHTML += `
+        <h2> ¡Tenemos un curso para vos! </h2>
+        <aside class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="card" >
+        <img src="${curso.imagen}"  alt="${curso.nombre}">
+        <div class="card-body">
+        <h6> Categoría: ${curso.categoria}
+        <h5 class="card-title">${curso.nombre}</h5>
+          <h6 class="precio">Precio: $${curso.precio} </h6> 
+          <p> ${curso.descripcion}</p>
+             
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+          <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
+                     
+          </div>
+        </div>
+      </aside>
+    
+    
+    
+         `
+    }
+}
+if(busquedaPorTexto.innerHTML === ''){
+    busquedaPorTexto.innerHTML += `<p><b>Lo sentimos, no hemos encontrado resultados para</b></p>
+    <p class="fs-5"><i><b> "${texto}"</b></i><p>
+    <p class="my-0"> <b> Modifica tu búsqueda. Aquí tienes algunas ideas: </b> <p>
+    <ul>
+    <li>Asegúrate de que todas las palabras están escritas correctamente.</li>
+    <li>Prueba con términos de búsqueda diferentes.</li>
+    <li>Prueba con términos de búsqueda más generales.</li>
+    </ul>
+     `
+}
+}else{
+
+busquedaPorTexto.innerHTML = '';
+}
+}
+
+//boton.addEventListener('click', filtrar)
+buscador.addEventListener('keyup', filtrar)
+
+
+filtrar();
+*/
