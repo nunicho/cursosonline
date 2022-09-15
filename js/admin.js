@@ -45,11 +45,11 @@ function crearFila (itemCurso){
     let tablaCurso = document.querySelector("#tablaCurso");
     tablaCurso.innerHTML += `<tr>
     <th scope="row">${itemCurso.codigo}</th>
-    <td>${itemCurso.nombre}</td>
-    <td>${itemCurso.precio}</td>
-    <td>${itemCurso.categoria}</td>
-    <td>${itemCurso.imagen}</td>
-    <td>${itemCurso.descripcion}</td>
+    <td class="overflow tdNombre">${itemCurso.nombre}</td>
+    <td class="overflow">${itemCurso.precio}</td>
+    <td class="overflow">${itemCurso.categoria}</td>
+    <td class="overflow tdImagen">${itemCurso.imagen}</td>  
+    <td class="overflow">${itemCurso.descripcion}</td>
     <td>
       <button class="btn btn-warning" onclick="editarCurso('${itemCurso.codigo}')">
         <i class="bi bi-pencil-square"></i>
