@@ -1,273 +1,387 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name=" author"
-        content="Gomez Marigliano Rodolfo Nicolas - Ahumada Matias - Lucena Hayward Ana Ines -  Alonso Mauricio Javier - Fuentes Maldonado Camila" />
-    <meta name="description" content="Ecommerce - Venta de cursos online - Trabajo Práctico Fin Módulo 2" />
-    <meta name=" keywords"
-        content="cursos, capacitaciones, ecommerce, enseñanza, aprendizaje, desarrollo, habilidades, diseño, marketing, aprender, programacion, negocios, estudio, venta, estudiante, mentor" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link
+      rel="shortcut icon"
+      href="img/logo/favicononlinecourses.png"
+      type="image/x-icon"
+    />
+    <meta
+      name=" author"
+      content="Gomez Marigliano Rodolfo Nicolas - Ahumada Matias - Lucena Hayward Ana Ines -  Alonso Mauricio Javier - Fuentes Maldonado Camila"
+    />
+    <meta
+      name="description"
+      content="Ecommerce - Venta de cursos online - Trabajo Práctico Fin Módulo 2"
+    />
+    <meta
+      name=" keywords"
+      content="cursos, capacitaciones, ecommerce, enseñanza, aprendizaje, desarrollo, habilidades, diseño, marketing, aprender, programacion, negocios, estudio, venta, estudiante, mentor"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+  />
+    <script
+      src="https://kit.fontawesome.com/e56615906d.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>ECOMMERCE - CURSOS</title>
-</head>
-<body>
-    <header>
-         <section>
-              <nav class="navbar navbar-expand-lg bg-light fixed-top">
-                <div class="container">
-                  <a class="navbar-brand" href="index.html">
-                    <img class="logoNavbar" src="https://cdn.ceoworld.biz/wp-content/uploads/2021/05/online-courses.jpg" alt="logo" width="67" height="67" />
-                  </a>
-                  <button class="navbar-toggler btn-dark" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-lg-0 mt-2">
-                        <li class="nav-item dropdown mx-2 mb-2">
-                            <a class="nav-link btn btn-info dropdown-toggle text-white" href="#" id="navbarDropdown"
-                              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Categorias
-                            </a>
-                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Javascript</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Web Design</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Ofimática</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Python y R</a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item btnColorPrincipal" href="#">Data Analyst</a>
-                              </li>
-                            </ul>
-                        </li>
-                        <li>
-                          <form class="d-flex mx-2">
-                            <input class="form-control" type="text" maxlength="25" minlength="1" placeholder="Busca cualquier curso"
-                              aria-label="Search" />
-                            <button class="btn btn-info text-white" type="submit">
+    <title>OnlineCourses.</title>
+  </head>
+  <body>
+    <header class="p-4">
+      <section>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <img
+                class="logoNavbar"
+                src="img/logo/onlinecourseslogo.png"
+                alt="logo"
+                width="67"
+                height="67"
+              />
+            </a>
+            <button
+              class="navbar-toggler btn-dark"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-lg-0 mt-2">
+                <li>
+                  <form class="d-flex mx-2">
+                    <select
+                      id="categorias"
+                      class="form-control bg-info text-light"
+                    >
+                      <option value="">Categoría</option>
+                      <option value="PROGRAMACION">PROGRAMACION</option>
+                      <option value="OFIMATICA">OFIMATICA</option>
+                      <option value="IDIOMAS">IDIOMAS</option>
+                      <option value="DATA">DATA</option>
+                      <option value="MULTIMEDIA">MULTIMEDIA</option>
+                    </select>
+                    <button
+                      class="btn btn-info text-white mx-2"
+                      id="botonCategorias"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </form>
+                </li>
+                <li>
+                  <form class="d-flex mx-2">
+                    <input
+                      id="buscador"
+                      class="form-control"
+                      type="text"
+                      maxlength="40"
+                      minlength="1"
+                      placeholder="¿Qué quieres aprender?"
+                      aria-label="Search"
+                    />
+                    <!-- <button class="btn btn-info text-white" id="boton">
                               <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                          </form>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-cart-arrow-down fs-3 text-info mx-2 my-2"></i>
-                            
-                        </li>
+                            </button> -->
+                  </form>
+                </li>
+                <li class="nav-item dropdown mx-2 mb-2">
+                  <a
+                    class="nav-link btn btn-info dropdown-toggle text-white"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i
+                      class="fa-solid fa-cart-arrow-down text-white fs-5 text-info"
+                    ></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li id="carrito">
+                      <table id="lista-carrito" class="u-full-width">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                      <div class="d-flex d-inline justify-content-evenly">
+                        <a
+                          href="#"
+                          id="vaciar-carrito"
+                          class="btn btn-warning u-full-width"
+                          >Vaciar</a
+                        >
+                        <a
+                          href="pages/error.html"
+                          id="hacer-compra"
+                          class="btn btn-success on u-full-width"
+                          >Comprar</a
+                        >
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown mx-2 mb-2">
+                  <a
+                    class="nav-link btn btn-info dropdown-toggle text-white"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fa-regular fa-star text-white fs-5 text-info"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li id="favoritos">
+                      <table id="lista-favoritos" class="u-full-width">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                      <div class="d-flex d-inline justify-content-evenly">
+                        <a
+                          href="#"
+                          id="vaciar-favoritos"
+                          class="btn btn-warning u-full-width"
+                          >Vaciar</a
+                        >
+                        <a
+                          href="pages/error.html"
+                          id="hacer-compra"
+                          class="btn btn-success on u-full-width"
+                          >Favoritos</a
+                        >
+                      </div>
+                    </li>
+                  </ul>
+                </li>
 
+                <li class="nav-item">
+                  <button class="btn btn-info py-0 mx-2 mb-2">
+                    <a class="nav-link text-white" href="pages/login.html"
+                      >Suscríbete</a
+                    >
+                  </button>
+                </li>
 
-
-                        <li class="nav-item">
-                            <button class="btn btn-info py-0 mx-2 mb-2">
-                              <a class="nav-link text-white" href="pages/suscripcion.html">Suscríbete</a>
-                            </button>
-                          </li>
-
-                        
-                                          
-                        <li class="nav-item">
-                        <a href="pages/login.html" class="btn btn-info text-white p-2 mx-2 mb-2" type="button" >
-                          Iniciar Sesion
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            </section>
- 
+                <li class="nav-item">
+                  <a
+                    href="pages/login.html"
+                    class="btn btn-info text-white p-2 mx-2 mb-2"
+                    type="button"
+                  >
+                    Iniciar Sesion
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
     </header>
     <main class="container">
-             <section class="container-fluid">
-                <div class="card text-white border-0">
-                  <video class="videoBannerAnimado" autoplay muted loop>
-                    <source src="vid/Spot.mp4" type="video/mp4" alt="videointroduccion" />
-                  </video>
-                  <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                    <div>
-                      <h5 class="card-title text-center m-1 m-sm-3 m-lg-4 font-weight-bold fs-1 ">
-                        CURSOS EN LINEA
-                      </h5>
-                      <div class="border border-2 rounded text-center">
-                        <h5 class="card-text font-weight-bold bgHBO m-0 bg-opacity-75 fs-3">
-                          APROVECHA
-                        </h5>
-                        <h3 class="card-text font-weight-bold bg-white m-0 bg-opacity-75 fs-1 textBannerPublicidad">
-                            A MITAD DE PRECIO 
-                        </h3>
-                        <h5 class="card-text font-weight-bold bgHBO m-0 bg-opacity-75 fs-3">
-                            TUS TRES PRIMEROS CURSOS
-                        </h5>
-                      </div>
-                      <div class="text-center m-1 m-sm-3 m-lg-4 text-center p-2">
-                        <a href="pages/suscripcion.html">
-                          <button type="button" class="btn bgHBO text-white fs-3">
-                            APROVECHA AHORA
-                          </button>
-                        </a>
-                        <p class="fs-6 mb-0 mt-1">
-                          *Oferta válida para nuevos suscriptores.
-                        </p>
-                        <p class="fs-6  m-0">
-                          hasta el 31 de octubre, 2022, por los tres primeros meses.
-                        </p>
-                        <p class="fs-6 text-info">
-                          Sujeto a términos y condiciones.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>   
- 
-        <section>
-            <h1 class="my-3 fs-1 text-center">Nuestros cursos en línea</h1>
-        </section>
-        <section class="row my-3" id="grilla" >
-            <aside class="col-12 col-md-4 col-lg-3 mb-3">
-              <div class="card" >
-                <img src="https://napsix.com/storage/files/ar/1452627/thumb-816x460-d544e0c8e6f5aa3fd2281b0d3846a96e.jpg" class="card-img-top" alt="${serie.titulo}">
-                <div class="card-body">
-                  <h5 class="card-title">Python de cero a máster</h5>
-                  <p> Aprende a programar en Python desde el inicio. Afiánzate en el mundo del análisis de datos con esta potente herramienta.</p>
-                    <a href="pages/detallespyton.html" class="btn btn-primary">ver detalle</a>
-                </div>
+      <section class="container-fluid">
+        <div class="card text-white border-0">
+          <video class="videoBannerAnimado" autoplay muted loop>
+            <source
+              src="vid/Spot.mp4"
+              type="video/mp4"
+              alt="videointroduccion"
+            />
+          </video>
+          <div
+            class="card-img-overlay d-flex align-items-center justify-content-center"
+          >
+            <div>
+              <h5
+                class="card-title text-center m-1 m-sm-3 m-lg-4 font-weight-bold fs-1"
+              >
+                ONLINE COURSES
+              </h5>
+              <div class="border border-2 rounded text-center">
+                <h5
+                  class="card-text font-weight-bold bgHBO m-0 bg-opacity-75 fs-3"
+                >
+                  APROVECHA
+                </h5>
+                <h3
+                  class="card-text font-weight-bold bg-white m-0 bg-opacity-75 fs-1 textBannerPublicidad"
+                >
+                  A MITAD DE PRECIO
+                </h3>
+                <h5
+                  class="card-text font-weight-bold bgHBO m-0 bg-opacity-75 fs-3"
+                >
+                  TUS TRES PRIMEROS CURSOS
+                </h5>
               </div>
-            </aside>
-            <aside class="col-12 col-md-4 col-lg-3 mb-3">
-              <div class="card" >
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiDZoooCQzxFCweamWAo1IVN9325TiJ2TFJA&usqp=CAU" class="card-img-top" alt="${serie.titulo}">
-                <div class="card-body">
-                  <h5 class="card-title">Domina Excel Full Course</h5>
-                  <p> Domina las fórmulas, las tablas dinámicas y las mecánicas de la herramienta de análisis de datos más extendida en el planeta. Haz tablas dinámicas, gráficos y macros como un profesional</p>
-                  <a href="pages/detallesexcel.html" class="btn btn-primary">ver detalle</a>
-                </div>
-              </div>
-            </aside>
-            <aside class="col-12 col-md-4 col-lg-3 mb-3">
-              <div class="card" >
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPV0S6QPMqXN7rCVsTPsQzKSWcb2mpBU6Z4Q&usqp=CAU" class="card-img-top" alt="${serie.titulo}">
-                <div class="card-body">
-                  <h5 class="card-title">Full Stack developer</h5>
-                  <p> Con este curso aprenderás a utilizar HTML, implementar estilos con CSS y definir funcionalidades con Javascript. Sumérgete en la profesión que más demanda tiene en la actualidad</p>
-                  <a href="pages/detallesfullstack.html" class="btn btn-primary">ver detalle</a>
-                </div>
-              </div>
-            </aside>
-            
-            <aside class="col-12 col-md-4 col-lg-3 mb-3">
-              <div class="card" >
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdeHi7naBtakVIpLuvJP9AjtK8jMZMzVDHH61JNTUovQjM0sNiaAcKf6HEUhGa_4UMOU&usqp=CAU" class="card-img-top" alt="${serie.titulo}">
-                <div class="card-body">
-                  <h5 class="card-title">Business English</h5>
-                  <p> Este curso está diseñado para bindarte las herramientas necesarias para mantener un diálogo en el ambiente laboral. </p>
-                  <a href="pages/detallesbussiness.html" class="btn btn-primary">ver detalle</a>
-                </div>
-              </div>
-            </aside>
-            <aside class="col-12 col-md-4 col-lg-3 mb-3">
-              <div class="card" >
-                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--XFTv-Qvm--/c_imagga_scale,f_auto,fl_progressive,h_720,q_auto,w_1280/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/c3cvwbyq8j10xyxycqog.png" class="card-img-top" alt="${serie.titulo}">
-                <div class="card-body">
-                  <h5 class="card-title">Power BI expert</h5>
-                  <p>Con este curso estarás capacitado para utilizar esta potente aplicación de análisis y exposición de información. Cada día el Data Analyst se hace más relevante y esta herramienta es la líder en importancia. </p>
-                  <a href="pages/detallespower.html" class="btn btn-primary">ver detalle</a>
-                </div>
-              </div>
-            </aside>
-          </section>
-
-          <section class="container - py-3 text-bg-dark">
-                          <div class="text-center text-white">
-                <h6 class="fs-3 my-4">
-                  Grandes empresa eligen "Cursos en Línea" para capacitar a sus trabajadores.
-                </h6>
-              </div>
-              <div class="row">
-                <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
-                    <div class="d-flex justify-content-center">
-                        <img src="https://www.ubatec.uba.ar/wp-content/uploads/2022/04/shell-logo.jpg" alt="" class="w-50" />
-                      </div>
-                </aside>
-                <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
-                  <div class="d-flex justify-content-center">
-                    <img src="https://tentulogo.com/wp-content/uploads/2017/06/cocacola-logo.jpg" alt="" class="w-50" />
-                  </div>
-                </aside>
-                <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
-                    <div class="d-flex justify-content-center">
-                      <img src="https://d31dn7nfpuwjnm.cloudfront.net/images/valoraciones/0034/4065/Macronline_Como_acceder_a_home_banking_de_Banco_Macro.jpg?1561756801" alt="" class="w-50" />
-                    </div>
-                  </aside>
-                  <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
-                    <div class="d-flex justify-content-center">
-                      <img src="https://gastrofranchising.com/wp-content/uploads/2020/10/grido.png" alt="" class="w-50" />
-                    </div>
-                  </aside>
-              </div>
-           </section>
-
-    </main>
-    <footer>
-        <section class="p-4 my-5 container-fluid bg-dark ">
-            <article class="row">
-              <div class="col-12 col-md-2 col-lg-2">
-                <a href="index.html">
-                  <img class="logoFooter" src="https://cdn.ceoworld.biz/wp-content/uploads/2021/05/online-courses.jpg" alt="logo" width="67" height="67" />
+              <div class="text-center m-1 m-sm-3 m-lg-4 text-center p-2">
+                <a href="pages/suscripcion.html">
+                  <button type="button" class="btn bgHBO text-white fs-3">
+                    APROVECHA AHORA
+                  </button>
                 </a>
+                <p class="fs-6 mb-0 mt-1">
+                  *Oferta válida para nuevos suscriptores.
+                </p>
+                <p class="fs-6 m-0">
+                  hasta el 31 de octubre 2022, por los tres primeros meses.
+                </p>
+                <p class="fs-6 text-info">Sujeto a términos y condiciones.</p>
               </div>
-              <div class="col-12 col-md-4 col-lg-2">
-                <a href="#" class="fs-5">Contáctanos</a>
-              </div>
-              <div class="col-12 col-md-6 col-lg-2">
-                <a href="#" class=" fs-5">Acerca de nosotros</a>
-              </div>
-              <div class="col-md-6 col-12 col-lg-3">
-                <div class="d-flex flex-column justify-content-center">
-                  <h5 class="text-center text-white fs-5 mb-3">Nuestra App</h5>
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6 text-center ">
-                      <a href="#">
-                        <i class="fa-brands fa-apple fs-5"></i>
-                      </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6 text-center">
-                        <a href="#">                     
-                      <i class="fa-brands fa-google-play fs-5"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-12 col-lg-3">
-                <div class="text-center sm-app">
-                  <h5 class="text-white fs-5">Síguenos</h5>
-                  <a href="#"><i class="fa-brands fa-facebook fs-5"></i></i></a>
-                  <a href="#"><i class="fa-brands fa-instagram fs-5"></i></i></a>
-                  <a href="#"><i class="fa-brands fa-twitter fs-5"></i></i></a>
-                </div>
-              </div>
-          </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h1 class="my-3 fs-1 text-center fw-bold tituloCursos">Nuestros cursos en línea</h1>
+        <hr />
+      </section>
+
+      <section id="busquedaPorTexto"></section>
+      <section class="row my-3" id="grilla"></section>
+
+      <section class="container - py-3 text-bg-dark">
+        <div class="text-center text-white">
+          <h6 class="fs-3 my-4">
+            Grandes empresa eligen "Cursos en Línea" para capacitar a sus
+            trabajadores.
+          </h6>
+        </div>
+        <div class="row">
+          <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
+            <div class="d-flex justify-content-center">
+              <img
+                src="https://www.ubatec.uba.ar/wp-content/uploads/2022/04/shell-logo.jpg"
+                alt=""
+                class="w-50"
+              />
+            </div>
+          </aside>
+          <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
+            <div class="d-flex justify-content-center">
+              <img
+                src="https://tentulogo.com/wp-content/uploads/2017/06/cocacola-logo.jpg"
+                alt=""
+                class="w-50"
+              />
+            </div>
+          </aside>
+          <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
+            <div class="d-flex justify-content-center">
+              <img
+                src="https://d31dn7nfpuwjnm.cloudfront.net/images/valoraciones/0034/4065/Macronline_Como_acceder_a_home_banking_de_Banco_Macro.jpg?1561756801"
+                alt=""
+                class="w-50"
+              />
+            </div>
+          </aside>
+          <aside class="col-sm-12 col-md-6 col-lg-3 text-white">
+            <div class="d-flex justify-content-center">
+              <img
+                src="https://gastrofranchising.com/wp-content/uploads/2020/10/grido.png"
+                alt=""
+                class="w-50"
+              />
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="navbar navbar-dark bg-dark mt-3">
+      <section class="container">
+        <div class="d-flex ">
+          <div>
+            <a href="index.html" class="navbar-brand fuente"><img src="img/logo/onlinecourseslogo.png" alt="logo" class="w-75"></a>
+          </div>
+          
+        </div>
+
+        <div class="text-secondary">
+          <h4 class="text-white">Navegacion</h4>
+          <div class="d-flex flex-direction-column">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="pages/acercaDeNosotros.html" class="nav-link">¿Quienes somos?</a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="pages/login.html" class="nav-link">Ingresa!</a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/registro.html" class="nav-link">Registrate!</a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/login.html" class="nav-link">Subscribete!</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-secondary">
+          <h4 class="text-white">Legales</h4>
+          <div>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="pages/error.html" class="nav-link">Regimen de transparencia</a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/error.html" class="nav-link">Usuario</a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="pages/error.html" class="nav-link">Terminos y condiciones</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      
+      </section>
     </footer>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/c29a7fae13.js" crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
-
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/c29a7fae13.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
