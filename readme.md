@@ -10,7 +10,7 @@
   
 
 ## Puedes acceder a la version demo de nuestro proyecto desde el siguiente link: 
-[Demo de Onlinecourses] (insertar URL -QUE ALGUIEN AGREGUE EL LINK DE NETLIFY ACA, DEJANDO LOS PARENTESIS, SE MOSTRARA SOLO LO DE CORCHETES)
+[Demo de Onlinecourses] (https://cursosonline-com6.netlify.app/)
 
 ## Pasos para probar este proyecto
 1. Crea una carpeta nueva en un directorio que recuerdes,
