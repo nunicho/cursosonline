@@ -16,12 +16,12 @@ function crearColumna(curso){
     <div class="card" >
     <img src="${curso.imagen}"  alt="${curso.nombre}">
       <div class="card-body">
-      <h6> Categoría: ${curso.categoria}
-      <h5 class="card-title">${curso.nombre}</h5>
+      <h6 class="tituloGrilla"> Categoría: ${curso.categoria}
+      <h5 class="card-title tituloGrilla">${curso.nombre}</h5>
         <h6 class="precio">Precio: $${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>
-        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
-        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>
+        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>        
         <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                                 
       </div>
@@ -69,7 +69,7 @@ function cargarEventListeners(){
 
 
 function agregarCurso(e){
-    // e.preventDefault()
+    e.preventDefault()
     if(e.target.classList.contains('agregar-carrito')){
         const cursoSeleccionado = e.target.parentElement.parentElement;
 
@@ -140,9 +140,9 @@ function carritoHTML(){
      const { imagen, titulo, precio, cantidad, id } = curso   
      const row = document.createElement('tr');
         row.innerHTML = `
-        <td><img src="${imagen}" width="50" class="rounded-circle"></td>
-        <td>${titulo}</td>
-        <td>$${precio}</td>
+        <td><img src="${imagen}" width="100" class="rounded border border-primary"></td>
+        <td class="carritoFavorito">${titulo}</td>
+        <td>${precio}</td>
         
         <td>
         <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
@@ -193,7 +193,7 @@ function cargarEventListenersFavoritos(){
 
 
 function agregarCursoFavoritos(e){
-    //e.preventDefault()
+    e.preventDefault()
     if(e.target.classList.contains('agregar-favorito')){
         const cursoSeleccionadoFavorito = e.target.parentElement.parentElement;
 
@@ -231,7 +231,7 @@ if (existeFavorito){
     //Actualizamos la cantidad
     const cursos = articulosFavoritos.map( curso => {
     if (curso.id === infoCurso.id){
-        curso.cantidad ++;
+        //curso.cantidad ++;
         return curso; // retorna el objeto actualizado
     }else{
         return curso; // retorna los objetos que no son los duplicados
@@ -264,12 +264,11 @@ function favoritosHTML(){
      const { imagen, titulo, precio, cantidad, id } = curso   
      const row = document.createElement('tr');
         row.innerHTML = `
-        <td><img src="${imagen}" width="100"></td>
-        <td>${titulo}</td>
+        <td><img src="${imagen}" width="100" class="rounded border border-primary"></td>
+        <td class="carritoFavorito">${titulo}</td>
         <td>${precio}</td>
-        <td>${cantidad}</td>
         <td>
-        <a href="#" class="borrar-curso" data-id="${id}"> X </a>
+        <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
         </td>
     `
     // Agrega el HTML de favoritos en el tbody
@@ -292,13 +291,14 @@ function limpiarHTMLFavoritos(){
 const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
 const buscador = document.querySelector('#buscador');
-// const boton = document.querySelector('#boton');
-const busquedaPorTexto = document.querySelector('#busquedaPorTexto')
-//const resultado = document.querySelector('#grilla')
+const busquedaEstado = document.querySelector('#grilla') //document.querySelector('#busquedaPorTexto')
+let busquedaEstadoPrevio = busquedaEstado.innerHTML
+const busquedaPorTexto = busquedaEstado 
+
 
 
 const filtrar = (e)=>{
-// e.preventDefault()
+//e.preventDefault()
 busquedaPorTexto.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 if(texto!==""){
@@ -311,12 +311,12 @@ for(let curso of cursoBuscado){
         <div class="card" >
         <img src="${curso.imagen}"  alt="${curso.nombre}">
         <div class="card-body">
-        <h6> Categoría: ${curso.categoria}
-        <h5 class="card-title">${curso.nombre}</h5>
+        <h6 class="tituloGrilla"> Categoría: ${curso.categoria}
+        <h5 class="card-title tituloGrilla">${curso.nombre}</h5>
           <h6 class="precio">Precio: $${curso.precio} </h6> 
           <p> ${curso.descripcion}</p>
-          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">Agregar a Favorito</a>    
-          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>  
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>   
           <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                      
           </div>
@@ -341,11 +341,11 @@ if(busquedaPorTexto.innerHTML === ''){
 }
 }else{
 
-busquedaPorTexto.innerHTML = '';
+busquedaPorTexto.innerHTML = busquedaEstadoPrevio
 }
 }
 
-// boton.addEventListener('click', filtrar)
+//boton.addEventListener('click', filtrar)
 buscador.addEventListener('keyup', filtrar)
 
 
@@ -362,7 +362,7 @@ let estadoPrevio = estado.innerHTML
 let resultado = estado
 
 const filtrarCategorias = (e)=>{
-    e.preventDefault()
+  e.preventDefault()
 resultado.innerHTML = '';
 const textoCategorias = buscadorCategorias.value;
 if(textoCategorias!==""){
@@ -374,12 +374,13 @@ for(let cursoCategoria of listaCursosCategorias){
         <div class="card" >
         <img src="${cursoCategoria.imagen}"  alt="${cursoCategoria.nombre}">
         <div class="card-body">
-        <h6> Categoría: ${cursoCategoria.categoria}
-        <h5 class="card-title">${cursoCategoria.nombre}</h5>
+        <h6 class="tituloGrilla"> Categoría: ${cursoCategoria.categoria}
+        <h5 class="card-title tituloGrilla">${cursoCategoria.nombre}</h5>
           <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
-          <p> ${cursoCategoria.descripcion}</p>    
-          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">Agregar Al Carrito</a>  
-          <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
+          <p> ${cursoCategoria.descripcion}</p> 
+          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">&#128722</a>  
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${cursoCategoria.codigo}">&#9733;</a>
+         <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
                      
           </div>
         </div>
