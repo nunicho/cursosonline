@@ -25,3 +25,17 @@ body{
     text-decoration: none;
     color:rgb(65, 65, 65);
 }
+
+/* ----------------------------------------------------Estilos del video */
+
+.spanTitulo1{
+    background-color: #d2c2b0;
+}
+
+.spanTitulo2{
+    background-color: black;
+}
+
+.textoTitulo{
+    background-color: rgb(20, 117, 117);
+}
