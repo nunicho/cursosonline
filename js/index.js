@@ -20,8 +20,8 @@ function crearColumna(curso){
       <h5 class="card-title tituloGrilla">${curso.nombre}</h5>
         <h6 class="precio">Precio: $${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>
-        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>    
-        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>  
+        <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>
+        <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>        
         <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                                 
       </div>
@@ -315,8 +315,8 @@ for(let curso of cursoBuscado){
         <h5 class="card-title tituloGrilla">${curso.nombre}</h5>
           <h6 class="precio">Precio: $${curso.precio} </h6> 
           <p> ${curso.descripcion}</p>
-          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>   
           <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">&#128722</a>  
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>   
           <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
                      
           </div>
@@ -378,9 +378,9 @@ for(let cursoCategoria of listaCursosCategorias){
         <h5 class="card-title tituloGrilla">${cursoCategoria.nombre}</h5>
           <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
           <p> ${cursoCategoria.descripcion}</p> 
-          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${cursoCategoria.codigo}">&#9733;</a>
           <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${cursoCategoria.codigo}">&#128722</a>  
-          <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
+          <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${cursoCategoria.codigo}">&#9733;</a>
+         <button class="btn btn-primary" onclick="detalleCurso('${cursoCategoria.codigo}')">Ver detalle</button>
                      
           </div>
         </div>

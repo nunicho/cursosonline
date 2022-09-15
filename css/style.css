@@ -83,6 +83,12 @@ font-weight:bolder;
     font-size: small;
 }
 
+.imgError404{
+    width: auto;
+    height: 500px;
+    object-fit: cover;
+  }
+
   @media all and (min-width: 575.99px) and (max-width: 767.9px) {
     .videoBannerAnimado {
       width: auto;
@@ -104,7 +110,12 @@ font-weight:bolder;
     background-color: rgb(20, 117, 117);
     font-size: medium;
 }
-  
+.imgError404{
+    width: auto;
+    height: 600px;
+    object-fit: cover;
+  }
+
   @media all and (min-width: 768px) and (max-width: 992.9px) {
     .videoBannerAnimado {
       width: auto;
@@ -126,6 +137,11 @@ font-weight:bolder;
     background-color: rgb(20, 117, 117);
     font-size: large;
 }
+.imgError404{
+    width: auto;
+    height: 720px;
+    object-fit: cover;
+  }
   
   @media all and (min-width: 993px) {
     .videobannerAnimado {
