@@ -16,8 +16,8 @@ function crearColumna(curso){
     <div class="card" >
     <img src="${curso.imagen}"  alt="${curso.nombre}">
       <div class="card-body">
-      <h6> Categoría: ${curso.categoria}
-      <h5 class="card-title">${curso.nombre}</h5>
+      <h6 class="tituloGrilla"> Categoría: ${curso.categoria}
+      <h5 class="card-title tituloGrilla">${curso.nombre}</h5>
         <h6 class="precio">Precio: $${curso.precio} </h6> 
         <p> ${curso.descripcion}</p>
         <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>    
@@ -140,9 +140,9 @@ function carritoHTML(){
      const { imagen, titulo, precio, cantidad, id } = curso   
      const row = document.createElement('tr');
         row.innerHTML = `
-        <td><img src="${imagen}" width="50" class="rounded-circle"></td>
-        <td>${titulo}</td>
-        <td>$${precio}</td>
+        <td><img src="${imagen}" width="100" class="rounded border border-primary"></td>
+        <td class="carritoFavorito">${titulo}</td>
+        <td>${precio}</td>
         
         <td>
         <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
@@ -264,12 +264,11 @@ function favoritosHTML(){
      const { imagen, titulo, precio, cantidad, id } = curso   
      const row = document.createElement('tr');
         row.innerHTML = `
-        <td><img src="${imagen}" width="100"></td>
-        <td>${titulo}</td>
+        <td><img src="${imagen}" width="100" class="rounded border border-primary"></td>
+        <td class="carritoFavorito">${titulo}</td>
         <td>${precio}</td>
-        <td>${cantidad}</td>
         <td>
-        <a href="#" class="borrar-curso" data-id="${id}"> X </a>
+        <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
         </td>
     `
     // Agrega el HTML de favoritos en el tbody
@@ -312,8 +311,8 @@ for(let curso of cursoBuscado){
         <div class="card" >
         <img src="${curso.imagen}"  alt="${curso.nombre}">
         <div class="card-body">
-        <h6> Categoría: ${curso.categoria}
-        <h5 class="card-title">${curso.nombre}</h5>
+        <h6 class="tituloGrilla"> Categoría: ${curso.categoria}
+        <h5 class="card-title tituloGrilla">${curso.nombre}</h5>
           <h6 class="precio">Precio: $${curso.precio} </h6> 
           <p> ${curso.descripcion}</p>
           <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${curso.codigo}">&#9733;</a>   
@@ -375,8 +374,8 @@ for(let cursoCategoria of listaCursosCategorias){
         <div class="card" >
         <img src="${cursoCategoria.imagen}"  alt="${cursoCategoria.nombre}">
         <div class="card-body">
-        <h6> Categoría: ${cursoCategoria.categoria}
-        <h5 class="card-title">${cursoCategoria.nombre}</h5>
+        <h6 class="tituloGrilla"> Categoría: ${cursoCategoria.categoria}
+        <h5 class="card-title tituloGrilla">${cursoCategoria.nombre}</h5>
           <h6 class="precio">Precio: $${cursoCategoria.precio} </h6> 
           <p> ${cursoCategoria.descripcion}</p> 
           <a href="#" class="btn btn-success button input agregar-favorito my-2" data-id="${cursoCategoria.codigo}">&#9733;</a>
@@ -416,67 +415,3 @@ buscadorCategorias.addEventListener('keyup', filtrarCategorias)
 
 filtrarCategorias();
 
-/*
-
-const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
-
-const buscador = document.querySelector('#buscador');
-// const boton = document.querySelector('#boton');
-const busquedaPorTexto = document.querySelector('#busquedaPorTexto')
-//const resultado = document.querySelector('#grilla')
-
-
-const filtrar = (e)=>{
-//e.preventDefault()
-busquedaPorTexto.innerHTML = '';
-const texto = buscador.value.toLowerCase ();
-if(texto!==""){
-for(let curso of cursoBuscado){
-    let nombre = curso.nombre.toLowerCase();
-    if(nombre.indexOf(texto) !== -1){
-        busquedaPorTexto.innerHTML += `
-        <h2> ¡Tenemos un curso para vos! </h2>
-        <aside class="col-12 col-md-4 col-lg-3 mb-3">
-        <div class="card" >
-        <img src="${curso.imagen}"  alt="${curso.nombre}">
-        <div class="card-body">
-        <h6> Categoría: ${curso.categoria}
-        <h5 class="card-title">${curso.nombre}</h5>
-          <h6 class="precio">Precio: $${curso.precio} </h6> 
-          <p> ${curso.descripcion}</p>
-             
-          <a href="#" class="btn btn-success button input agregar-carrito my-2" data-id="${curso.codigo}">Agregar Al Carrito</a>  
-          <button class="btn btn-primary" onclick="detalleCurso('${curso.codigo}')">Ver detalle</button>
-                     
-          </div>
-        </div>
-      </aside>
-    
-    
-    
-         `
-    }
-}
-if(busquedaPorTexto.innerHTML === ''){
-    busquedaPorTexto.innerHTML += `<p><b>Lo sentimos, no hemos encontrado resultados para</b></p>
-    <p class="fs-5"><i><b> "${texto}"</b></i><p>
-    <p class="my-0"> <b> Modifica tu búsqueda. Aquí tienes algunas ideas: </b> <p>
-    <ul>
-    <li>Asegúrate de que todas las palabras están escritas correctamente.</li>
-    <li>Prueba con términos de búsqueda diferentes.</li>
-    <li>Prueba con términos de búsqueda más generales.</li>
-    </ul>
-     `
-}
-}else{
-
-busquedaPorTexto.innerHTML = '';
-}
-}
-
-//boton.addEventListener('click', filtrar)
-buscador.addEventListener('keyup', filtrar)
-
-
-filtrar();
-*/
