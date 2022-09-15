@@ -1,14 +1,14 @@
-// // obtener el parametro de la url
+
 console.log(window.location.search)
 
 const parametroCodigo = new URLSearchParams(window.location.search)
 console.log(parametroCodigo.get('codigo'))
 
-// // buscar en el arregl ode peliculas cual tiene el mismo cod de mi parametro
+
 let listaCursos = JSON.parse(localStorage.getItem('listaCursosKey'))
 let cursoBuscado = listaCursos.find((curso)=>{return curso.codigo === parametroCodigo.get('codigo')})
 console.log(cursoBuscado)
-// // dibujamos la card
+
 let detalle = document.querySelector('#seccionDetalle')
  detalle.innerHTML=`
 <div class="card mb-3">
