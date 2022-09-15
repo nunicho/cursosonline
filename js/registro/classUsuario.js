@@ -7,5 +7,5 @@ export default class Persona {
 
   }
 
-  //   definir sett y get por is se necesita
+
 }

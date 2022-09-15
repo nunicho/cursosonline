@@ -8,5 +8,5 @@ export default class Curso{
         this.descripcion = descripcion;
     }
 
-    //MAURI, ACA TENDRIAS QUE DEFINIR LOS GETTERS Y SETTERS DEL CONSTRUCTOR, POR SI LOS NECESITAS.
+
 }

@@ -32,7 +32,7 @@ font-weight:bolder;
 .carritoFavorito{
     font-size: smaller;
 }
-/* ----------------------------------------------------Estilos del video */
+
 
 .spanTitulo1{
     background-color: #d2c2b0;
@@ -47,12 +47,13 @@ font-weight:bolder;
 }
 
 
-/* ----------------------------------------------------Estilos del footer */
+
 
 
 .noBull{
     list-style-type: none; 
 }
+
 
 
 /* ----------------------------------------------------Estilos de la tabla de amdinistración */
@@ -90,6 +91,7 @@ td{
 }
 
 /* ------------------------------------MEDIA QUERIES---------------------------------------- */
+
 
 @media all and (max-width: 575.98px) {
     .videoBannerAnimado {

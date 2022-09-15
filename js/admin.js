@@ -13,9 +13,9 @@ let imagen = document.querySelector("#imagen")
 let descripcion = document.querySelector("#descripcion")
 let formCurso = document.querySelector("#formCurso")
 
-let cursoNuevo = true;  // si cursoNuevo es true entonces crear un Curso, caso contrario actualizar un Curso
+let cursoNuevo = true;  
 
- //eventListeners
+
 
 btnCrearCurso.addEventListener("click", mostrarFormulario);
 
@@ -86,15 +86,15 @@ function crearCurso(e){
   {
       const nuevoCurso = new Curso(codigo.value, nombre.value, precio.value, categoria.value, imagen.value, descripcion.value)
       console.log(nuevoCurso);
-      //GUARDAR CURSO EN EL ARREGLO
+
       listaCursos.push(nuevoCurso);
-      //guardar los datos en local storage
+  
       guardarDatosEnLS()
-      // LIMPIAR CURSO
+ 
       limpiarFormulario();
-      //dibujar curso
+  
       crearFila(nuevoCurso)
-      //CERRAR LA VENTANA MODAL
+
       Swal.fire('El curso fue cargado correctamente!')   
       modalFormCurso.hide();
   
@@ -157,13 +157,13 @@ window.borrarCurso = function (codigo) {
 
   window.editarCurso = function (codigoBuscado) {
     cursoNuevo = false;
-    //mostrar la ventana modal
+
     modalFormCurso.show();
-    //buscar el curso que quiero mostrar en el formulario
+ 
     let cursoBuscado = listaCursos.find(
       (curso) => curso.codigo === codigoBuscado
     );
-    //cargar el formulario con los datos
+
     codigo.value = cursoBuscado.codigo;
     nombre.value = cursoBuscado.nombre;
     precio.value = cursoBuscado.precio;
@@ -175,26 +175,25 @@ window.borrarCurso = function (codigo) {
   
   function actualizarCurso() {
     console.log("actualizando datos del curso...");
-    //buscar la posicion del curso que estoy editando en el arreglo de cursos (codigo)
-    // let posicionCurso = listaCursos.findIndex((curso)=> {return curso.codigo === codigo.value}); //return implicito
+
     let posicionCurso = listaCursos.findIndex(
       (curso) => curso.codigo === codigo.value
-    ); //return implicito
+    );
   
-    //actualizar todos los datos del objeto
+ 
     listaCursos[posicionCurso].nombre = nombre.value;
     listaCursos[posicionCurso].precio = precio.value;
     listaCursos[posicionCurso].categoria = categoria.value;
     listaCursos[posicionCurso].imagen = imagen.value;
     listaCursos[posicionCurso].descripcion = descripcion.value;
     
-    //actualizar el localstorage
+ 
     guardarDatosEnLS();
-    //actualizar la tabla
+ 
     actualizarTabla();
-    //cerrar ventana modal
+
     modalFormCurso.hide()
-    //limpie el formulario
+
     limpiarFormulario();
   }
 
