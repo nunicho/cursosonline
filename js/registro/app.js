@@ -3,6 +3,7 @@ import {cantidadCaracteres, validarContrasena} from "./helpersRegistro.js";
 
 let listaPersonas = JSON.parse(localStorage.getItem("listaPersonasKey")) || [];
 
+
 let codigo = document.querySelector("#id");
 let nombre = document.querySelector("#nombre");
 let contrasena = document.querySelector("#contrasena");
@@ -16,7 +17,7 @@ tipo.value = "Usuario";
 
 function crearPersona(e) {
   e.preventDefault();
- //validaciones
+ 
    if(cantidadCaracteres(nombre) && validarContrasena(contrasena)){
     const nuevaPersona = new Persona(
       codigo.value,
@@ -24,17 +25,19 @@ function crearPersona(e) {
       contrasena.value,
       tipo.value
     );
-  
-    //GUARDAR CURSO EN EL ARREGLO
-    listaPersonas.push(nuevaPersona);
+   
+    
+    listaPersonas.push(nuevaPersona)
+   ;
     console.log(listaPersonas);
-    // guardar los datos en local storage
-    guardarDatosEnLS();
-    // LIMPIAR formulario
+    
+    guardarDatosEnLS(
+    );
+    
     limpiarFormulario();
    }
 
-  //CREAR persona
+ 
  
 }
 
@@ -50,4 +53,3 @@ function limpiarFormulario() {
   contrasena.className = "form-control";
   tipo.className = "form-control text-dark";
 }
-// 
