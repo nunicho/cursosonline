@@ -3,7 +3,6 @@
 let listaCursos = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
 
-//dibujar columnas
 listaCursos.map((curso)=>{ crearColumna(curso)})
 
 
@@ -38,7 +37,6 @@ function detalleCurso(codigo){
 }
 
 
-/*------------------------------------------------------------ CARRITO DE COMPRAS*/
 
 
 
@@ -53,17 +51,17 @@ let articulosCarrito =[];
 cargarEventListeners();
 
 function cargarEventListeners(){
-// cuando agregas un curso presionando "Agregar al Carrito"
+
     grilla.addEventListener('click', agregarCurso);
 
 
-    //Elimina cursos del carrito
+
     carrito.addEventListener('click', eliminarCurso)
 
     //
     vaciarCarritoBtn.addEventListener('click', () =>{
-        articulosCarrito =[]; // reseteamos el arreglo
-        limpiarHTML(); // Eliminamos todo el HTML
+        articulosCarrito =[]; 
+        limpiarHTML(); 
     })
 }
 
@@ -78,22 +76,21 @@ leerDatosCurso(cursoSeleccionado);
  
 }
 
-//Elimina los datos del carrito
+
 function eliminarCurso (e){
 if(e.target.classList.contains('borrar-curso')){
     const cursoId = e.target.getAttribute('data-id')
-    // Elimina el arreglo de articuloCarrito por el data-id
+   
     articulosCarrito = articulosCarrito.filter( curso => curso.id !== cursoId);
-carritoHTML(); // Iterar sobre el carrito y mostrar su HTML
+carritoHTML();
 }   
 
 }
 
-//Lee el contenido del HTML al que le dimos click y extrae la información del curo
+
 
 function leerDatosCurso(curso){
-// console.log(curso)
-// Crear un objeto con el contenido del curso actual
+
 const infoCurso = {
     imagen: curso.querySelector('img').src,
     titulo: curso.querySelector('h5').textContent,
@@ -101,38 +98,37 @@ const infoCurso = {
     id: curso.querySelector('a').getAttribute('data-id'),
     cantidad: 1
 }
-// Revisa si un elemento ya existe en el carrito
+
 const existe = articulosCarrito.some(curso => curso.id === infoCurso.id)
 if (existe){
-    //Actualizamos la cantidad
+ 
     const cursos = articulosCarrito.map( curso => {
     if (curso.id === infoCurso.id){
-    //curso.cantidad ++;
-        return curso; // retorna el objeto actualizado
+
+        return curso; 
     }else{
-        return curso; // retorna los objetos que no son los duplicados
+        return curso; 
     }
 
     });
     articulosCarrito = [...cursos];
 }else{
-    // Agregamos el curso al carrito
     articulosCarrito = [...articulosCarrito, infoCurso]
 }
 
-// Agrega elemento al arreglo de carrito
+
 ;
 console.log(articulosCarrito);
 carritoHTML();
 }
 
-// Muestra el carrito de compras en el HTML
+
 
 function carritoHTML(){
-    // Limpiar el HTML
+
     limpiarHTML()
 
-    //Recorre el carrito y genera el HTML
+
     
     
     articulosCarrito.forEach(curso => {
@@ -148,16 +144,16 @@ function carritoHTML(){
         <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
         </td>
     `
-    // Agrega el HTML del carrito en el tbody
+
     contenedorCarrito.appendChild(row)
 })
 }
 
-// Elimina los cursos del tbody
+
 
 function limpiarHTML(){
-   // Forma lenta
-   //  contenedorCarrito.innerHTML = ''
+
+
    while(contenedorCarrito.firstChild){
     contenedorCarrito.removeChild(contenedorCarrito.firstChild)
    }
@@ -165,7 +161,6 @@ function limpiarHTML(){
 
 
 
-/*------------------------------------------------------------ CURSOS FAVORITOS*/
 
 const favoritos = document.querySelector('#favoritos');
 const contenedorFavoritos = document.querySelector('#lista-favoritos tbody');
@@ -177,17 +172,17 @@ let articulosFavoritos =[];
 cargarEventListenersFavoritos();
 
 function cargarEventListenersFavoritos(){
-// cuando agregas un curso presionando "Agregar a favoritos"
+
     listaCursosFavoritos.addEventListener('click', agregarCursoFavoritos);
 
 
-    //Elimina cursos del favoritos
+
     favoritos.addEventListener('click', eliminarCursoFavoritos)
 
-    //
+
     vaciarFavoritosBtn.addEventListener('click', () =>{
-        articulosFavoritos =[]; // reseteamos el arreglo
-        limpiarHTMLFavoritos(); // Eliminamos todo el HTML
+        articulosFavoritos =[]; 
+        limpiarHTMLFavoritos(); 
     })
 }
 
@@ -202,22 +197,20 @@ leerDatosCursoFavoritos(cursoSeleccionadoFavorito);
  
 }
 
-//Elimina los datos de favoritos
+
 function eliminarCursoFavoritos (e){
 if(e.target.classList.contains('borrar-curso')){
     const cursoIdFavorito = e.target.getAttribute('data-id')
-    // Elimina el arreglo de articuloFavorito por el data-id
+    
     articulosFavoritos = articulosFavoritos.filter( curso => curso.id !== cursoIdFavorito);
-favoritosHTML(); // Iterar sobre favorito y mostrar su HTML
+favoritosHTML(); 
 }   
 
 }
 
-//Lee el contenido del HTML al que le dimos click y extrae la información del curo
+
 
 function leerDatosCursoFavoritos(curso){
-// console.log(curso)
-// Crear un objeto con el contenido del curso actual
 const infoCursoFavorito = {
     imagen: curso.querySelector('img').src,
     titulo: curso.querySelector('h5').textContent,
@@ -225,38 +218,35 @@ const infoCursoFavorito = {
     id: curso.querySelector('a').getAttribute('data-id'),
     cantidad: 1
 }
-// Revisa si un elemento ya existe en favorito
+
 const existeFavorito = articulosFavoritos.some(curso => curso.id === infoCursoFavorito.id)
 if (existeFavorito){
-    //Actualizamos la cantidad
     const cursos = articulosFavoritos.map( curso => {
     if (curso.id === infoCurso.id){
-        //curso.cantidad ++;
-        return curso; // retorna el objeto actualizado
+        return curso; 
     }else{
-        return curso; // retorna los objetos que no son los duplicados
+        return curso;
     }
 
     });
     articulosFavoritos = [...cursos];
 }else{
-    // Agregamos el curso a favoritos
+
     articulosFavoritos = [...articulosFavoritos, infoCursoFavorito]
 }
 
-// Agrega elemento al arreglo de favoritos
-;
+
 console.log(articulosFavoritos);
 favoritosHTML();
 }
 
-// Muestra favoritos en el HTML
+
 
 function favoritosHTML(){
-    // Limpiar el HTML
+ 
     limpiarHTMLFavoritos()
 
-    //Recorre favoritos y genera el HTML
+    
     
     
     articulosFavoritos.forEach(curso => {
@@ -271,34 +261,33 @@ function favoritosHTML(){
         <a href="#" class="borrar-curso bg-danger border-dark  text-white ms-1" data-id="${id}"> X </a>
         </td>
     `
-    // Agrega el HTML de favoritos en el tbody
+    
     contenedorFavoritos.appendChild(row)
 })
 }
 
-// Elimina los cursos del tbody
+
 
 function limpiarHTMLFavoritos(){
-   // Forma lenta
-   //  contenedorFavoritos.innerHTML = ''
+
    while(contenedorFavoritos.firstChild){
     contenedorFavoritos.removeChild(contenedorFavoritos.firstChild)
    }
 }
 
-/*------------------------------------------------------------ BARRA BUSCADORA*/
+
 
 const cursoBuscado = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
 const buscador = document.querySelector('#buscador');
-const busquedaEstado = document.querySelector('#grilla') //document.querySelector('#busquedaPorTexto')
+const busquedaEstado = document.querySelector('#grilla') 
 let busquedaEstadoPrevio = busquedaEstado.innerHTML
 const busquedaPorTexto = busquedaEstado 
 
 
 
 const filtrar = (e)=>{
-//e.preventDefault()
+
 busquedaPorTexto.innerHTML = '';
 const texto = buscador.value.toLowerCase ();
 if(texto!==""){
@@ -345,13 +334,13 @@ busquedaPorTexto.innerHTML = busquedaEstadoPrevio
 }
 }
 
-//boton.addEventListener('click', filtrar)
+
 buscador.addEventListener('keyup', filtrar)
 
 
 filtrar();
 
-/*------------------------------------------------------------ BARRA BUSCADORA CATEGORIAS*/
+
 
 const listaCursosCategorias = JSON.parse(localStorage.getItem('listaCursosKey')) || [];
 
